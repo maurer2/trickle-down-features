@@ -1,8 +1,12 @@
 <script lang="ts">
   import { Router, Route } from 'svelte-tiny-router';
+  import "urlpattern-polyfill";
 
   import Home from './routes/home/Home.svelte';
   import JustifySelf from './routes/justify-self/JustifySelf.svelte';
+
+  const urlPattern = new URLPattern({ pathname: '/:subpage' });
+  const isSubpage = urlPattern.test(window.location);
 </script>
 
 <Router>
@@ -14,6 +18,10 @@
     <Route>
       <p>404</p>
     </Route>
+
+    {#if isSubpage}
+      <a href="/" class="back-link">Go back</a>
+    {/if}
   </main>
 </Router>
 
@@ -22,6 +30,12 @@
     inline-size: min(80ch, 100%);
     margin: 0 auto;
     padding: 2rem;
+  }
+
+  .back-link {
+    display: block;
+    inline-size: fit-content; /* prevents outline from stretching across the entire row */
+    margin-block-start: 2rem;
   }
 
 </style>
