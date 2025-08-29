@@ -1,17 +1,47 @@
-<h1 class="headline">justify-self</h1>
+<script lang="ts">
+  import type { ComponentProps } from "svelte";
+  import SelectField from "../../components/SelectField.svelte";
 
-<h2 class="subheadline">With explicit inline size</h2>
-<div class="parent">
-  <span class="child1">Block element</span>
+  type SelectFieldProp = ComponentProps<typeof SelectField>;
+
+  const options: SelectFieldProp["options"] = [
+    { label: "center", value: "center" },
+    { label: "left", value: "start" },
+    { label: "right", value: "end" },
+  ];
+  let selectedOption = $state(options[0]);
+</script>
+
+<div class="header">
+  <h1 class="headline">justify-self</h1>
+  <SelectField
+    bind:selectedOption
+    {options}
+    label="Select a value for justify-self:"
+    name="select-justify-self-1"
+  />
 </div>
 
-<h2 class="subheadline">Without explicit inline size (child shrinks to max-content)</h2>
-<div class="parent">
-  <span class="child2">Block element</span>
-</div>
+<div class="examples" style="--justify-self: {selectedOption.value}">
+  <h2 class="subheadline">With explicit inline size</h2>
+  <div class="parent">
+    <span class="child1">Block element</span>
+  </div>
 
+  <h2 class="subheadline">
+    Without explicit inline size (child shrinks to max-content)
+  </h2>
+  <div class="parent">
+    <span class="child2">Block element</span>
+  </div>
+</div>
 
 <style>
+  .header {
+    container-type: inline-size;
+    container-name: header;
+  }
+
   .headline {
     margin-block-start: 0;
     margin-block-end: 1rem;
@@ -31,9 +61,8 @@
     display: block;
     padding: inherit;
     inline-size: min(200px, 100%);
-    /* max-inline-size: 100%; */
     border: 2px dashed var(--black);
-    justify-self: center;
+    justify-self: var(--justify-self, center);
     text-align: center;
   }
 
@@ -41,9 +70,8 @@
     display: block;
     padding: inherit;
     border: 2px dashed var(--black);
-    justify-self: center;
+    justify-self: var(--justify-self, center);
     text-align: center;
     max-inline-size: 100%; /* to prevent overflow on small viewports */
   }
-
 </style>

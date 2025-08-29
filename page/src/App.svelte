@@ -1,11 +1,11 @@
 <script lang="ts">
-  import { Router, Route } from 'svelte-tiny-router';
+  import { Router, Route } from "svelte-tiny-router";
   import "urlpattern-polyfill";
 
-  import Home from './routes/home/Home.svelte';
-  import JustifySelf from './routes/justify-self/JustifySelf.svelte';
+  import Home from "./routes/home/Home.svelte";
+  import JustifySelf from "./routes/justify-self/JustifySelf.svelte";
 
-  const urlPattern = new URLPattern({ pathname: '/:subpage' });
+  const urlPattern = new URLPattern({ pathname: "/:subpage" });
   const isSubpage = urlPattern.test(window.location);
 </script>
 
@@ -16,7 +16,7 @@
     <Route path="/justify-self" component={JustifySelf} />
 
     <Route>
-      <p>404</p>
+      <h1>404</h1>
     </Route>
 
     {#if isSubpage}
@@ -37,5 +37,4 @@
     inline-size: fit-content; /* prevents outline from stretching across the entire row */
     margin-block-start: 2rem;
   }
-
 </style>
