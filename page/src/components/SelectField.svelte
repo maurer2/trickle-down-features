@@ -13,11 +13,13 @@
     name,
   }: SelectFieldProp = $props();
 
-  const optionsAsMap = Object.fromEntries(
-    options.map((option) => [
-      option.value,
-      { label: option.label, value: option.value },
-    ])
+  const optionsAsMap = $derived(
+    Object.fromEntries(
+      options.map((option) => [
+        option.value,
+        { label: option.label, value: option.value },
+      ])
+    )
   );
 </script>
 

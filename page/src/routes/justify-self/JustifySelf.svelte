@@ -1,13 +1,24 @@
 <script lang="ts">
   import type { ComponentProps } from "svelte";
+  import type { Property } from "csstype";
+
   import SelectField from "../../components/SelectField.svelte";
 
   type SelectFieldProp = ComponentProps<typeof SelectField>;
+  type SelectFieldOptionProp = {
+    label: SelectFieldProp["options"][number]["label"];
+    value: Property.JustifySelf;
+  };
 
-  const options: SelectFieldProp["options"] = [
-    { label: "center", value: "center" },
-    { label: "left", value: "start" },
-    { label: "right", value: "end" },
+  const options: SelectFieldOptionProp[] = [
+    { label: "Centre", value: "center" },
+    { label: "Start", value: "start" },
+    { label: "End", value: "end" },
+    { label: "Stretch", value: "stretch" },
+    { label: "Flex-start", value: "flex-start" },
+    { label: "Flex-end", value: "flex-end" },
+    { label: "Left", value: "left" },
+    { label: "Right", value: "right" },
   ];
   let selectedOption = $state(options[0]);
 </script>
