@@ -27,15 +27,9 @@
 
 <style>
   .container {
-    ---transition-duration: 1s;
-
     inline-size: min(80ch, 100%);
     margin: 0 auto;
     padding: 2rem;
-
-    @media (prefers-reduced-motion: reduce) {
-      ---transition-duration: 0;
-    }
   }
 
   .back-link {

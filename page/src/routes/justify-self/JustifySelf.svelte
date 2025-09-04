@@ -5,7 +5,7 @@
   import SelectField from "../../components/SelectField.svelte";
 
   const options = new Map<string, Property.JustifySelf>([
-    ["center", "Center"],
+    ["center", "Centre"],
     ["start", "Start"],
     ["end", "End"],
     ["stretch", "Stretch"],
@@ -36,13 +36,13 @@
 >
   <div>
     <h2 class="headline">Block elements</h2>
-    <section>
+    <section class="example">
       <h3 class="subheadline">With explicit inline size</h3>
       <div class="parent">
         <span class="child1">Block element</span>
       </div>
     </section>
-    <section>
+    <section class="example">
       <h3 class="subheadline">
         Without explicit inline size (child shrinks to max-content)
       </h3>
@@ -50,26 +50,27 @@
         <span class="child2">Block element</span>
       </div>
     </section>
+
+    <h2 class="headline">Absolute positioned elements</h2>
+    <p>Todo</p>
   </div>
 </div>
 
 <style>
   .examples {
-    height: auto;
     margin-block-end: 2rem;
     overflow: clip;
+    opacity: 1;
     transition:
-      height var(---transition-duration),
-      display var(---transition-duration) allow-discrete;
-    interpolate-size: allow-keywords;
+      opacity var(--transition-duration),
+      display var(--transition-duration) allow-discrete;
 
     @starting-style {
-      height: 0;
-      margin-block-end: 0;
+      opacity: 0;
     }
+
     &[hidden] {
-      height: 0;
-      margin-block-end: 0;
+      opacity: 0;
     }
   }
   .header {
@@ -89,30 +90,43 @@
   }
 
   .subheadline {
-    margin-block-start: 2rem;
+    margin-block-start: 0;
     margin-block-end: 1rem;
+  }
+
+  .example {
+    margin-block-end: 2rem;
   }
 
   .parent {
     padding: 1rem;
-    border: 2px solid var(--black);
+    position: relative;
+    border: 3px dashed var(--black);
+    border-radius: 25px;
+    corner-shape: squircle;
   }
 
   .child1 {
     display: block;
     padding: inherit;
     inline-size: min(200px, 100%);
-    border: 2px dashed var(--black);
     justify-self: var(--justify-self, auto);
+    border-radius: 25px;
     text-align: center;
+    corner-shape: squircle;
+    background: var(--black);
+    color: var(--white);
   }
 
   .child2 {
     display: block;
     padding: inherit;
-    border: 2px dashed var(--black);
-    justify-self: var(--justify-self, auto);
-    text-align: center;
     max-inline-size: 100%; /* to prevent overflow on small viewports */
+    justify-self: var(--justify-self, auto);
+    border-radius: 25px;
+    text-align: center;
+    corner-shape: squircle;
+    background: var(--black);
+    color: var(--white);
   }
 </style>

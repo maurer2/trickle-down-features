@@ -17,7 +17,7 @@
 </script>
 
 <form class="form">
-  <label for={name}>{label}</label>
+  <label for={name} class="label">{label}</label>
   <select
     bind:value={
       () => selectedOption?.[0],
@@ -35,48 +35,99 @@
     id={name}
     {name}
   >
-    {#each options as [value, label], index (value)}
-      {#if index === 0}
-        <option value={undefined}>Please select an option</option>
-      {/if}
+    <option value={undefined}>Please select an option</option>
+    {#each options as [value, label] (value)}
       <option {value}>{label}</option>
     {/each}
   </select>
-
-  <!-- <pre class="debug"><code
-      >{$state.snapshot(JSON.stringify(selectedOption, null, 4))}</code
-    ></pre> -->
 </form>
 
 <style>
   .form {
-    display: grid inline;
-    grid-template-columns: 1fr;
-    row-gap: 1rem;
+    display: flex;
+    gap: 1rem;
+    flex-flow: row wrap;
+    align-items: center;
+  }
 
-    @container header (width >= 480px) {
-      grid-template-columns: auto auto;
-      row-gap: 0;
-      column-gap: 1rem;
-      align-items: safe start;
-    }
+  .label {
+    flex: auto;
   }
 
   .select {
     appearance: base-select;
-    inline-size: 250px;
-    padding: 0.25rem;
-    outline-offset: 0.5rem;
+    padding-inline: 1rem;
+    padding-block: 0.5rem;
+    /* https://www.joren.co/flex-grow-9999-hack/ */
+    flex: 9999 0 250px;
+    align-self: flex-start;
     border: 2px solid var(--black);
-    border-radius: 0;
+    border-radius: 25px;
+    outline-offset: 0.5rem;
+    corner-shape: squircle;
+
+    &::picker-icon {
+      transition: rotate var(--transition-duration);
+    }
+
+    &:open::picker-icon {
+      rotate: 180deg;
+    }
+
+    &::picker(select) {
+      appearance: base-select;
+      padding: 0;
+      margin-block-start: 1rem;
+      border: 0;
+      border-radius: 25px;
+      corner-shape: squircle;
+      background: var(--black);
+      color: var(--white);
+      opacity: 0;
+      transition: opacity var(--transition-duration);
+    }
+
+    &:open::picker(select) {
+      opacity: 1;
+
+      @starting-style {
+        opacity: 0;
+      }
+    }
   }
 
-  /* .debug {
-    overflow: hidden;
+  option {
+    position: relative;
+    padding-inline: 1rem;
+    padding-block: calc(0.5rem + 4px);
+    border: 0;
 
-    @container header (width >= 480px) {
-      grid-column-start: 2;
-      grid-row-start: 2;
+    &:first-of-type {
+      font-style: italic;
     }
-  } */
+
+    &:where(:hover, :focus) {
+      background: var(--white);
+      color: var(--black);
+
+      &:before {
+        position: absolute;
+        content: "\27A0";
+      }
+    }
+
+    &:where(:checked) {
+      background: var(--white);
+      color: var(--black);
+      font-weight: 700;
+
+      &:before {
+        content: none;
+      }
+    }
+
+    &:focus-visible {
+      outline-offset: -0.5rem;
+    }
+  }
 </style>
