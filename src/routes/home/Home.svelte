@@ -1,8 +1,8 @@
 <h1 class="headline">Examples</h1>
 
 <ul aria-label="List of pages">
-  <li><a href="/justify-self">justify-self</a></li>
-  <li><a href="/align-self">align-self</a></li>
+  <li><a href="/trickle-down-features/justify-self">justify-self</a></li>
+  <li><a href="/trickle-down-features/align-self">align-self</a></li>
 </ul>
 
 <style>

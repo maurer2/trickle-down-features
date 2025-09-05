@@ -6,16 +6,18 @@
   import JustifySelf from "./routes/justify-self/JustifySelf.svelte";
   import AlignSelf from "./routes/align-self/AlignSelf.svelte";
 
-  const urlPattern = new URLPattern({ pathname: "/:subpage" });
+  const urlPattern = new URLPattern({
+    pathname: "/trickle-down-features/:subpage",
+  });
   const isSubpage = urlPattern.test(window.location);
 </script>
 
 <Router>
   <main class="container">
-    <Route path="/" component={Home} />
+    <Route path="/trickle-down-features/" component={Home} />
 
-    <Route path="/justify-self" component={JustifySelf} />
-    <Route path="/align-self" component={AlignSelf} />
+    <Route path="/trickle-down-features/justify-self" component={JustifySelf} />
+    <Route path="/trickle-down-features/align-self" component={AlignSelf} />
 
     <Route>
       <h1>404</h1>
