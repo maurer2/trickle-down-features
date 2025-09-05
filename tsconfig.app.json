@@ -16,7 +16,8 @@
     "checkJs": true,
     "isolatedModules": true,
     "moduleDetection": "force",
-    "erasableSyntaxOnly": true
+    "erasableSyntaxOnly": true,
+    "composite": true
   },
   "include": ["src/**/*.ts", "src/**/*.js", "src/**/*.svelte"]
 }
