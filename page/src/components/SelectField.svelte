@@ -14,10 +14,11 @@
     label,
     name,
   }: SelectFieldProp = $props();
+  const uid = $props.id();
 </script>
 
 <form class="form">
-  <label for={name} class="label">{label}</label>
+  <label for={uid} class="label">{label}</label>
   <select
     bind:value={
       () => selectedOption?.[0],
@@ -32,7 +33,7 @@
       }
     }
     class="select"
-    id={name}
+    id={uid}
     {name}
   >
     <option value={undefined}>Please select an option</option>
@@ -83,17 +84,17 @@
       corner-shape: squircle;
       background: var(--black);
       color: var(--white);
-      opacity: 0;
-      transition: opacity var(--transition-duration);
+      /* opacity: 0;
+      transition: opacity var(--transition-duration); */
     }
 
-    &:open::picker(select) {
+    /* &:open::picker(select) {
       opacity: 1;
 
       @starting-style {
         opacity: 0;
       }
-    }
+    } */
   }
 
   option {

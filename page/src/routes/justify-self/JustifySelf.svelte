@@ -4,7 +4,7 @@
 
   import SelectField from "../../components/SelectField.svelte";
 
-  const options = new Map<string, Property.JustifySelf>([
+  const options = new Map<Property.JustifySelf, string>([
     ["center", "Centre"],
     ["start", "Start"],
     ["end", "End"],
@@ -26,7 +26,7 @@
     bind:selectedOption
     {options}
     label="Select a value for justify-self:"
-    name="select-justify-self-1"
+    name="select-justify-self"
   />
 </div>
 <div
