@@ -4,6 +4,7 @@
 
   import Home from "./routes/home/Home.svelte";
   import JustifySelf from "./routes/justify-self/JustifySelf.svelte";
+  import AlignSelf from "./routes/align-self/AlignSelf.svelte";
 
   const urlPattern = new URLPattern({ pathname: "/:subpage" });
   const isSubpage = urlPattern.test(window.location);
@@ -14,6 +15,7 @@
     <Route path="/" component={Home} />
 
     <Route path="/justify-self" component={JustifySelf} />
+    <Route path="/align-self" component={AlignSelf} />
 
     <Route>
       <h1>404</h1>
