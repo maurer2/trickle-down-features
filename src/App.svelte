@@ -1,33 +1,41 @@
 <script lang="ts">
-  import { Router, Route } from "svelte-tiny-router";
   import "urlpattern-polyfill";
+  import { Router, type RouteConfig } from "@mateothegreat/svelte5-router";
 
   import Home from "./routes/home/Home.svelte";
   import JustifySelf from "./routes/justify-self/JustifySelf.svelte";
   import AlignSelf from "./routes/align-self/AlignSelf.svelte";
 
   const urlPattern = new URLPattern({
-    pathname: "/trickle-down-features/:subpage",
+    // pathname: "/:base{/:subpage}?",
+    pathname: "/:base/:subpage{/}?", // optional trailing slash
   });
-  const isSubpage = urlPattern.test(window.location);
+  const isSubpage = urlPattern.test(window.location.href);
+  console.log(urlPattern.exec(window.location.href));
+
+  const routes: RouteConfig[] = [
+    {
+      path: "/",
+      component: Home,
+    },
+    {
+      path: "justify-self",
+      component: JustifySelf,
+    },
+    {
+      path: "align-self",
+      component: AlignSelf,
+    },
+  ];
 </script>
 
-<Router>
-  <main class="container">
-    <Route path="/trickle-down-features/" component={Home} />
+<main class="container">
+  <Router {routes} basePath="/trickle-down-features" />
 
-    <Route path="/trickle-down-features/justify-self" component={JustifySelf} />
-    <Route path="/trickle-down-features/align-self" component={AlignSelf} />
-
-    <Route>
-      <h1>404</h1>
-    </Route>
-
-    {#if isSubpage}
-      <a href="/" class="back-link">Go back</a>
-    {/if}
-  </main>
-</Router>
+  {#if isSubpage}
+    <a href="/" class="back-link">Go back</a>
+  {/if}
+</main>
 
 <style>
   .container {
