@@ -2,7 +2,7 @@
   import type { Property } from "csstype";
   import type { Entry, Simplify } from "type-fest";
 
-  import SelectField from "../../components/SelectField.svelte";
+  import SelectField from "../../components/SelectField/SelectField.svelte";
 
   const options = new Map<Property.AlignSelf, string>([
     ["auto", "Auto"],

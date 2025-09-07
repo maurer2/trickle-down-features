@@ -10,7 +10,7 @@
     "check": "svelte-check --tsconfig ./tsconfig.app.json && tsc -p tsconfig.node.json"
   },
   "dependencies": {
-    "@mateothegreat/svelte5-router": "^2.16.19",
+    "@dvcol/svelte-simple-router": "^2.7.2",
     "@sveltejs/vite-plugin-svelte": "^6.1.1",
     "@tsconfig/svelte": "^5.0.4",
     "csstype": "^3.1.3",

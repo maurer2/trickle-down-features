@@ -1,51 +1,72 @@
 <script lang="ts">
   import "urlpattern-polyfill";
-  import { Router, type RouteConfig } from "@mateothegreat/svelte5-router";
+  import type {
+    Route,
+    RouterOptions,
+  } from "@dvcol/svelte-simple-router/models";
+  import {
+    RouterView,
+    RouterContext,
+  } from "@dvcol/svelte-simple-router/components";
 
   import Home from "./routes/home/Home.svelte";
   import JustifySelf from "./routes/justify-self/JustifySelf.svelte";
   import AlignSelf from "./routes/align-self/AlignSelf.svelte";
+  import GoBackLink from "./components/GoBackLink/GoBackLink.svelte";
 
-  const urlPattern = new URLPattern({
-    // pathname: "/:base{/:subpage}?",
-    pathname: "/:base/:subpage{/}?", // optional trailing slash
-  });
-  const isSubpage = urlPattern.test(window.location.href);
-  console.log(urlPattern.exec(window.location.href));
+  const routeNames = {
+    home: "/",
+    justifySelf: "justify-self",
+    alignSelf: "align-self",
+  } as const;
+  type RouteNames = (typeof routeNames)[keyof typeof routeNames];
 
-  const routes: RouteConfig[] = [
+  const routes: Route<RouteNames>[] = [
     {
-      path: "/",
+      name: routeNames.home,
+      path: routeNames.home,
       component: Home,
     },
     {
-      path: "justify-self",
+      name: routeNames.justifySelf,
+      path: `/${routeNames.justifySelf}`,
       component: JustifySelf,
     },
     {
-      path: "align-self",
+      name: routeNames.alignSelf,
+      path: `/${routeNames.alignSelf}`,
       component: AlignSelf,
     },
-  ];
+  ] as const;
+  const options: RouterOptions<RouteNames> = {
+    routes,
+    base: "/trickle-down-features",
+    hash: true,
+    stripTrailingHash: true,
+  } as const;
+
+  const urlPattern = new URLPattern({
+    //pathname: "/:base/:subpage{/}?", // optional trailing slash
+    hash: "/:subpage",
+  });
+  $inspect(urlPattern.exec(window.location.href)?.hash);
+  const isSubpage = $derived(urlPattern.test(window.location.href));
 </script>
 
 <main class="container">
-  <Router {routes} basePath="/trickle-down-features" />
-
-  {#if isSubpage}
-    <a href="/" class="back-link">Go back</a>
-  {/if}
+  <RouterContext {options}>
+    <RouterView />
+    {#if isSubpage}
+      <GoBackLink />
+    {/if}
+  </RouterContext>
 </main>
 
 <style>
   .container {
     inline-size: min(80ch, 100%);
-    margin: 0 auto;
+    margin-inline: auto;
+    margin-block: 0;
     padding: 2rem;
-  }
-
-  .back-link {
-    display: block;
-    inline-size: fit-content; /* prevents outline from stretching across the entire row */
   }
 </style>
