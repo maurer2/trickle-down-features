@@ -32,7 +32,7 @@
         selectedOption = [newSelectedValue, options.get(newSelectedValue)!];
       }
     }
-    class="select"
+    class="select squircle"
     id={uid}
     {name}
   >
@@ -65,7 +65,6 @@
     border: 2px solid var(--black);
     border-radius: 25px;
     outline-offset: 0.5rem;
-    corner-shape: squircle;
 
     &::picker-icon {
       transition: rotate var(--transition-duration);
@@ -81,7 +80,7 @@
       margin-block-start: 1rem;
       border: 0;
       border-radius: 25px;
-      corner-shape: squircle;
+      corner-shape: squircle; /* still required as utility class can't be applied */
       background: var(--black);
       color: var(--white);
       /* opacity: 0;

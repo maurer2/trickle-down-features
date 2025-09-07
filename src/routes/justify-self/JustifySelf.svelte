@@ -29,25 +29,21 @@
     name="select-justify-self"
   />
 </div>
-<div
-  class="examples"
-  style="--justify-self: {selectedOption?.[0] ?? 'auto'}"
-  hidden={!selectedOption}
->
+<div class="examples" style="--justify-self: {selectedOption?.[0] ?? 'auto'}">
   <div>
     <h2 class="headline">Block elements</h2>
     <section class="example">
       <h3 class="subheadline">With explicit inline size</h3>
-      <div class="parent">
-        <span class="child1">Block element</span>
+      <div class="parent squircle">
+        <span class="child1 squircle">Block element</span>
       </div>
     </section>
     <section class="example">
       <h3 class="subheadline">
         Without explicit inline size (child shrinks to max-content)
       </h3>
-      <div class="parent">
-        <span class="child2">Block element</span>
+      <div class="parent squircle">
+        <span class="child2 squircle">Block element</span>
       </div>
     </section>
 
@@ -59,20 +55,8 @@
 <style>
   .examples {
     margin-block-end: 2rem;
-    overflow: clip;
-    opacity: 1;
-    transition:
-      opacity var(--transition-duration),
-      display var(--transition-duration) allow-discrete;
-
-    @starting-style {
-      opacity: 0;
-    }
-
-    &[hidden] {
-      opacity: 0;
-    }
   }
+
   .header {
     container-type: inline-size;
     container-name: header;
@@ -103,7 +87,6 @@
     position: relative;
     border: 3px dashed var(--black);
     border-radius: 25px;
-    corner-shape: squircle;
   }
 
   .child1 {
@@ -113,7 +96,6 @@
     justify-self: var(--justify-self, auto);
     border-radius: 25px;
     text-align: center;
-    corner-shape: squircle;
     background: var(--black);
     color: var(--white);
   }
@@ -125,7 +107,6 @@
     justify-self: var(--justify-self, auto);
     border-radius: 25px;
     text-align: center;
-    corner-shape: squircle;
     background: var(--black);
     color: var(--white);
   }

@@ -1,3 +1,5 @@
+@layer defaults, utilities;
+
 :root {
   --white: #ffffff;
   --amber: #ffbe0bff;
@@ -12,38 +14,48 @@
   @media (prefers-reduced-motion: reduce) {
     --transition-duration: 0;
   }
-
-  line-height: 1.5;
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  font-weight: 400;
-  font-synthesis: none;
-  font-size: 16px;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background: var(--amber);
-  color: var(--black);
 }
 
-body {
-  block-size: 100vh;
-  block-size: 100dvh;
+@layer defaults {
+  :root {
+    line-height: 1.5;
+    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-synthesis: none;
+    font-size: 16px;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: var(--amber);
+    color: var(--black);
+  }
+
+  body {
+    block-size: 100vh;
+    block-size: 100dvh;
+  }
+
+  .app {
+    display: contents;
+  }
+
+  a:where(:link, :visited) {
+    color: var(--blue-violet);
+    text-decoration: none;
+  }
+
+  a:where(:hover, :focus) {
+    color: var(--rose);
+    text-decoration: underline;
+  }
+
+  a:where(:focus-visible) {
+    outline-offset: 0.5rem;
+  }
 }
 
-.app {
-  display: contents;
-}
-
-a:where(:link, :visited) {
-  color: var(--blue-violet);
-  text-decoration: none;
-}
-
-a:where(:hover, :focus) {
-  color: var(--rose);
-  text-decoration: underline;
-}
-
-a:where(:focus-visible) {
-  outline-offset: 0.5rem;
+@layer utilities {
+  .squircle {
+    corner-shape: squircle;
+  }
 }

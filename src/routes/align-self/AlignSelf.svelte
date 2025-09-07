@@ -43,14 +43,14 @@
     </h2>
     <section class="example">
       <h3 class="subheadline">With correct value for inset</h3>
-      <div class="parent">
-        <span class="child1">Absolute positioned child element</span>
+      <div class="parent squircle">
+        <span class="child1 squircle">Absolute positioned child element</span>
       </div>
     </section>
     <section class="example">
       <h3 class="subheadline">With inset set to "auto"</h3>
-      <div class="parent">
-        <span class="child2">Absolute positioned child element</span>
+      <div class="parent squircle">
+        <span class="child2 squircle">Absolute positioned child element</span>
       </div>
     </section>
   </div>
@@ -59,19 +59,6 @@
 <style>
   .examples {
     margin-block-end: 2rem;
-    overflow: clip;
-    opacity: 1;
-    transition:
-      opacity var(--transition-duration),
-      display var(--transition-duration) allow-discrete;
-
-    @starting-style {
-      opacity: 0;
-    }
-
-    &[hidden] {
-      opacity: 0;
-    }
   }
 
   .header {
@@ -105,7 +92,6 @@
     block-size: 200px;
     border: 3px dashed var(--black);
     border-radius: 25px;
-    corner-shape: squircle;
   }
 
   .child1 {
@@ -117,7 +103,6 @@
     align-self: var(--align-self, auto);
     border-radius: 25px;
     text-align: center;
-    corner-shape: squircle;
     background: var(--black);
     color: var(--white);
   }
@@ -131,7 +116,6 @@
     align-self: var(--align-self, auto);
     border-radius: 25px;
     text-align: center;
-    corner-shape: squircle;
     background: var(--black);
     color: var(--white);
   }

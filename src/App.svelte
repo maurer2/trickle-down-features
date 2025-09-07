@@ -20,7 +20,6 @@
     alignSelf: "align-self",
   } as const;
   type RouteNames = (typeof routeNames)[keyof typeof routeNames];
-
   const routes: Route<RouteNames>[] = [
     {
       name: routeNames.home,
