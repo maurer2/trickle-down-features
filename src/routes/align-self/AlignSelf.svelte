@@ -17,9 +17,10 @@
     ["self-start", "Self start"],
     ["self-end", "Self end"],
   ]);
+  const defaultSelectedOption = options.entries().next().value;
 
   let selectedOption = $state<Simplify<Entry<typeof options>> | undefined>(
-    undefined
+    defaultSelectedOption
   );
 </script>
 
@@ -32,11 +33,7 @@
     name="select-align-self"
   />
 </div>
-<div
-  class="examples"
-  style="--align-self: {selectedOption?.[0] ?? 'auto'}"
-  hidden={!selectedOption}
->
+<div class="examples" style="--align-self: {selectedOption?.[0] ?? 'auto'}">
   <div>
     <h2 class="headline">
       Absolute positioned child element inside relative positioned parent

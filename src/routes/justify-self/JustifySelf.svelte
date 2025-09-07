@@ -5,6 +5,7 @@
   import SelectField from "../../components/SelectField/SelectField.svelte";
 
   const options = new Map<Property.JustifySelf, string>([
+    ["auto", "Auto"],
     ["center", "Centre"],
     ["start", "Start"],
     ["end", "End"],
@@ -14,9 +15,10 @@
     ["left", "Left"],
     ["right", "Right"],
   ]);
+  const defaultSelectedOption = options.entries().next().value;
 
   let selectedOption = $state<Simplify<Entry<typeof options>> | undefined>(
-    undefined
+    defaultSelectedOption
   );
 </script>
 
