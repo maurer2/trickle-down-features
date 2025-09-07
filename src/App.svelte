@@ -44,21 +44,12 @@
     hash: true,
     stripTrailingHash: true,
   } as const;
-
-  const urlPattern = new URLPattern({
-    //pathname: "/:base/:subpage{/}?", // optional trailing slash
-    hash: "/:subpage",
-  });
-  $inspect(urlPattern.exec(window.location.href)?.hash);
-  const isSubpage = $derived(urlPattern.test(window.location.href));
 </script>
 
 <main class="container">
   <RouterContext {options}>
     <RouterView />
-    {#if isSubpage}
-      <GoBackLink />
-    {/if}
+    <GoBackLink />
   </RouterContext>
 </main>
 
