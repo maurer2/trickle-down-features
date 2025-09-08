@@ -12,12 +12,13 @@
   // stale
   // const isSubpage = $derived(urlPattern.test(window.location.href));
   const isSubpage = $derived.by(() => {
+    console.log(reactiveRoute?.name);
     return urlPattern.test(window.location.href) || reactiveRoute?.name !== "/";
   });
 </script>
 
 {#if isSubpage}
-  <a href="/#/" class="link">Go back</a>
+  <a href="#/" class="link">Go back</a>
 {/if}
 
 <style>
