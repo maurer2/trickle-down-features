@@ -3,6 +3,7 @@
   import type { Entry, Simplify } from "type-fest";
 
   import SelectField from "../../components/SelectField/SelectField.svelte";
+  import Example from "../../components/Example/Example.svelte";
 
   const options = new Map<Property.JustifySelf, string>([
     ["auto", "Auto"],
@@ -32,30 +33,46 @@
   />
 </div>
 <div class="examples" style="--justify-self: {selectedOption?.[0] ?? 'auto'}">
-  <div>
-    <h2 class="headline">Block elements</h2>
-    <section class="example">
-      <h3 class="subheadline">With explicit inline size</h3>
-      <div class="parent squircle">
-        <span class="child1 squircle">Block element</span>
-      </div>
-    </section>
-    <section class="example">
-      <h3 class="subheadline">
+  <h2 class="headline">With explicit inline size</h2>
+  <section class="example-wrapper">
+    <Example parentClass="parent1" childClass="child1">
+      {#snippet title()}
+        Block element
+      {/snippet}
+      {#snippet label()}
+        Block element
+      {/snippet}
+    </Example>
+  </section>
+  <section class="example-wrapper">
+    <Example parentClass="parent2" childClass="child2">
+      {#snippet title()}
         Without explicit inline size (child shrinks to max-content)
-      </h3>
-      <div class="parent squircle">
-        <span class="child2 squircle">Block element</span>
-      </div>
-    </section>
-
-    <h2 class="headline">Absolute positioned elements</h2>
-    <p>Todo</p>
-  </div>
+      {/snippet}
+      {#snippet label()}
+        Block element
+      {/snippet}
+    </Example>
+  </section>
+  <h2 class="headline">Absolute positioned elements</h2>
+  <section class="example-wrapper">
+    <Example parentClass="parent3" childClass="child3">
+      {#snippet title()}
+        With non-"auto" value for inset/inset-inline
+      {/snippet}
+      {#snippet label()}
+        Absolute positioned element
+      {/snippet}
+    </Example>
+  </section>
 </div>
 
 <style>
   .examples {
+    margin-block-end: 2rem;
+  }
+
+  .example-wrapper {
     margin-block-end: 2rem;
   }
 
@@ -74,42 +91,29 @@
     margin-block-start: 0;
     margin-block-end: 1rem;
   }
-
-  .subheadline {
-    margin-block-start: 0;
-    margin-block-end: 1rem;
-  }
-
-  .example {
-    margin-block-end: 2rem;
-  }
-
-  .parent {
-    padding: 1rem;
+  .examples :where(:global(.parent1), :global(.parent2)) {
     position: relative;
-    border: 3px dashed var(--black);
-    border-radius: 25px;
   }
 
-  .child1 {
+  .examples :global(.parent3) {
+    position: relative;
+    block-size: 200px;
+  }
+  .examples :global(.child1) {
     display: block;
-    padding: inherit;
     inline-size: min(200px, 100%);
     justify-self: var(--justify-self, auto);
-    border-radius: 25px;
-    text-align: center;
-    background: var(--black);
-    color: var(--white);
   }
 
-  .child2 {
+  .examples :global(.child2) {
     display: block;
-    padding: inherit;
     max-inline-size: 100%; /* to prevent overflow on small viewports */
     justify-self: var(--justify-self, auto);
-    border-radius: 25px;
-    text-align: center;
-    background: var(--black);
-    color: var(--white);
+  }
+
+  .examples :global(.child3) {
+    position: absolute;
+    inset: 1rem; /* important */
+    justify-self: var(--justify-self, auto);
   }
 </style>

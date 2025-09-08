@@ -3,6 +3,7 @@
   import type { Entry, Simplify } from "type-fest";
 
   import SelectField from "../../components/SelectField/SelectField.svelte";
+  import Example from "../../components/Example/Example.svelte";
 
   const options = new Map<Property.AlignSelf, string>([
     ["auto", "Auto"],
@@ -34,27 +35,37 @@
   />
 </div>
 <div class="examples" style="--align-self: {selectedOption?.[0] ?? 'auto'}">
-  <div>
-    <h2 class="headline">
-      Absolute positioned child element inside relative positioned parent
-    </h2>
-    <section class="example">
-      <h3 class="subheadline">With correct value for inset</h3>
-      <div class="parent squircle">
-        <span class="child1 squircle">Absolute positioned child element</span>
-      </div>
-    </section>
-    <section class="example">
-      <h3 class="subheadline">With inset set to "auto"</h3>
-      <div class="parent squircle">
-        <span class="child2 squircle">Absolute positioned child element</span>
-      </div>
-    </section>
-  </div>
+  <h2 class="headline">
+    Absolute positioned child elements inside relative positioned parent
+  </h2>
+  <section class="example-wrapper">
+    <Example parentClass="parent1" childClass="child1">
+      {#snippet title()}
+        With non-"auto" value for inset/inset-inline
+      {/snippet}
+      {#snippet label()}
+        Absolute positioned element
+      {/snippet}
+    </Example>
+  </section>
+  <section class="example-wrapper">
+    <Example parentClass="parent2" childClass="child2">
+      {#snippet title()}
+        With non-auto value for inset
+      {/snippet}
+      {#snippet label()}
+        Absolute positioned element
+      {/snippet}
+    </Example>
+  </section>
 </div>
 
 <style>
   .examples {
+    margin-block-end: 2rem;
+  }
+
+  .example-wrapper {
     margin-block-end: 2rem;
   }
 
@@ -72,48 +83,28 @@
   .headline {
     margin-block-start: 0;
     margin-block-end: 1rem;
+    /* text-wrap: balance; */
   }
 
-  .subheadline {
-    margin-block-start: 0;
-    margin-block-end: 1rem;
-  }
-
-  .example {
-    margin-block-end: 2rem;
-  }
-
-  .parent {
-    padding: 1rem;
+  /* reference to wrapper element and :global required to pass style class as prop to child */
+  .examples :where(:global(.parent1), :global(.parent2)) {
     position: relative;
     block-size: 200px;
-    border: 3px dashed var(--black);
-    border-radius: 25px;
   }
 
-  .child1 {
+  .examples :global(.child1) {
     position: absolute;
     inset: 1rem; /* important */
-    padding: inherit;
     /* inline-size: min(200px, 100%); */
     margin-inline: auto; /* also works on absolute positioned elements */
     align-self: var(--align-self, auto);
-    border-radius: 25px;
-    text-align: center;
-    background: var(--black);
-    color: var(--white);
   }
 
-  .child2 {
+  .examples :global(child2) {
     position: absolute;
     inset: auto;
-    padding: inherit;
     /* inline-size: min(200px, 100%); */
     margin-inline: auto; /* also works on absolute positioned elements */
     align-self: var(--align-self, auto);
-    border-radius: 25px;
-    text-align: center;
-    background: var(--black);
-    color: var(--white);
   }
 </style>
