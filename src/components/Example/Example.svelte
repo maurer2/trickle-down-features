@@ -39,6 +39,7 @@
     padding: inherit;
     border-radius: 25px;
     text-align: center;
+    font-weight: 700;
     background: var(--black);
     color: var(--white);
   }

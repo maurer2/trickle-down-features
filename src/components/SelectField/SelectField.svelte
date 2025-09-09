@@ -65,6 +65,12 @@
     border: 2px solid var(--black);
     border-radius: 25px;
     outline-offset: 0.5rem;
+    font-weight: 700;
+
+    &:where(:hover, :focus-within) {
+      background: var(--black);
+      color: var(--white);
+    }
 
     &::picker-icon {
       transition: rotate var(--transition-duration);
@@ -104,6 +110,10 @@
 
     &:first-of-type {
       font-style: italic;
+
+      &:where(:hover, :focus):before {
+        font-style: normal;
+      }
     }
 
     &:where(:hover, :focus) {

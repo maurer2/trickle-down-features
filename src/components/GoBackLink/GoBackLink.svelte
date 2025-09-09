@@ -1,6 +1,8 @@
 <script lang="ts">
   import { useRoute } from "@dvcol/svelte-simple-router/router";
 
+  import Link from "../Link/Link.svelte";
+
   const { route } = $derived(useRoute());
   const reactiveRoute = $derived(route);
 
@@ -18,12 +20,5 @@
 </script>
 
 {#if isSubpage}
-  <a href="#/" class="link">Go back</a>
+  <Link target="#/">Go back</Link>
 {/if}
-
-<style>
-  .link {
-    display: block;
-    inline-size: fit-content; /* prevents outline from stretching across the entire row */
-  }
-</style>

@@ -54,9 +54,9 @@
 
 <style>
   .container {
-    inline-size: min(80ch, 100%);
     margin-inline: auto;
     margin-block: 0;
     padding: 2rem;
+    inline-size: min(80ch, 100%);
   }
 </style>
