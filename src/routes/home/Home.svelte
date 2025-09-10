@@ -17,9 +17,7 @@
     >
   </li>
   <li>
-    <Link target="#/align-content" class="link" aria-disabled
-      >align-content</Link
-    >
+    <Link target="#/align-content" class="link">align-content</Link>
   </li>
 </ul>
 
@@ -43,8 +41,6 @@
   }
 
   .links :global(.link) {
-    height: 100%;
-    height: stretch;
     flex: auto;
     align-content: center;
   }

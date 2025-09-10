@@ -58,4 +58,8 @@
   .squircle {
     corner-shape: squircle;
   }
+
+  .code {
+    font-weight: 700;
+  }
 }
