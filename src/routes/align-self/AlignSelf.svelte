@@ -2,6 +2,7 @@
   import type { Property } from "csstype";
   import type { Entry, Simplify } from "type-fest";
 
+  import MainLayout from "../../layouts/MainLayout/MainLayout.svelte";
   import SelectField from "../../components/SelectField/SelectField.svelte";
   import Example from "../../components/Example/Example.svelte";
 
@@ -25,59 +26,54 @@
   );
 </script>
 
-<div class="header">
-  <h1 class="title">align-self</h1>
-  <SelectField
-    bind:selectedOption
-    {options}
-    label="Select a value for align-self:"
-    name="select-align-self"
-  />
-</div>
-<div class="examples" style="--align-self: {selectedOption?.[0] ?? 'auto'}">
-  <h2 class="headline">
-    Absolute positioned child elements inside relative positioned parent
-  </h2>
-  <section class="example-wrapper">
-    <Example parentClass="parent1" childClass="child1">
-      {#snippet title()}
-        With non-"auto" value for inset/inset-inline
-      {/snippet}
-      {#snippet label()}
-        Absolute positioned element
-      {/snippet}
-    </Example>
-  </section>
-  <section class="example-wrapper">
-    <Example parentClass="parent2" childClass="child2">
-      {#snippet title()}
-        With non-auto value for inset
-      {/snippet}
-      {#snippet label()}
-        Absolute positioned element
-      {/snippet}
-    </Example>
-  </section>
-</div>
+<MainLayout>
+  {#snippet pageTitle()}
+    align-self
+  {/snippet}
+  {#snippet headerContent()}
+    <SelectField
+      bind:selectedOption
+      {options}
+      label="Select a value for align-self:"
+      name="select-align-self"
+    />
+  {/snippet}
+  {#snippet pageContent()}
+    <div class="examples" style="--align-self: {selectedOption?.[0] ?? 'auto'}">
+      <h3 class="headline">
+        Absolute positioned child elements inside relative positioned parent
+      </h3>
+      <section class="example-wrapper">
+        <Example parentClass="parent1" childClass="child1">
+          {#snippet title()}
+            With non-"auto" value for inset/inset-inline
+          {/snippet}
+          {#snippet label()}
+            Absolute positioned element
+          {/snippet}
+        </Example>
+      </section>
+      <section class="example-wrapper">
+        <Example parentClass="parent2" childClass="child2">
+          {#snippet title()}
+            With non-auto value for inset
+          {/snippet}
+          {#snippet label()}
+            Absolute positioned element
+          {/snippet}
+        </Example>
+      </section>
+    </div>
+  {/snippet}
+</MainLayout>
 
 <style>
   .examples {
-    margin-block-end: 2rem;
-  }
-
-  .example-wrapper {
-    margin-block-end: 2rem;
-  }
-
-  .header {
-    container-type: inline-size;
-    container-name: header;
-    margin-block-end: 2rem;
-  }
-
-  .title {
-    margin-block-start: 0;
     margin-block-end: 1rem;
+  }
+
+  .example-wrapper:not(:last-child) {
+    margin-block-end: 2rem;
   }
 
   .headline {

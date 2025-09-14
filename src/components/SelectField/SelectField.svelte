@@ -62,7 +62,7 @@
     /* https://www.joren.co/flex-grow-9999-hack/ */
     flex: 9999 0 250px;
     align-self: flex-start;
-    border: 2px solid var(--black);
+    border: 2px solid var(--amber);
     border-radius: 25px;
     outline-offset: 0.5rem;
     font-weight: 700;
@@ -83,23 +83,14 @@
     &::picker(select) {
       appearance: base-select;
       padding: 0;
-      margin-block-start: 1rem;
+      margin-block-start: 1.5rem;
       border: 0;
       border-radius: 25px;
       corner-shape: squircle; /* still required as utility class can't be applied */
-      background: var(--black);
-      color: var(--white);
-      /* opacity: 0;
-      transition: opacity var(--transition-duration); */
+      background: var(--amber);
+      color: var(--black);
+      border: 3px solid var(--black);
     }
-
-    /* &:open::picker(select) {
-      opacity: 1;
-
-      @starting-style {
-        opacity: 0;
-      }
-    } */
   }
 
   option {
@@ -117,8 +108,8 @@
     }
 
     &:where(:hover, :focus) {
-      background: var(--white);
-      color: var(--black);
+      background: var(--black);
+      color: var(--white);
 
       &:before {
         position: absolute;
@@ -127,8 +118,8 @@
     }
 
     &:where(:checked) {
-      background: var(--white);
-      color: var(--black);
+      background: var(--black);
+      color: var(--white);
       font-weight: 700;
 
       &:before {

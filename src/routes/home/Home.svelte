@@ -1,39 +1,40 @@
 <script lang="ts">
+  import MainLayout from "../../layouts/MainLayout/MainLayout.svelte";
   import Link from "../../components/Link/Link.svelte";
 </script>
 
-<h1 class="title" id="title">Examples</h1>
+<MainLayout>
+  {#snippet pageTitle()}
+    Examples
+  {/snippet}
+  {#snippet pageContent()}
+    <ul class="links" aria-describedby="page-title">
+      <li><Link target="#/justify-self" class="link">justify-self</Link></li>
+      <li><Link target="#/align-self" class="link">align-self</Link></li>
 
-<ul class="links" aria-describedby="title">
-  <li><Link target="#/justify-self" class="link">justify-self</Link></li>
-  <li><Link target="#/align-self" class="link">align-self</Link></li>
-
-  <li>
-    <Link target="#/place-self" class="link" aria-disabled>place-self</Link>
-  </li>
-  <li>
-    <Link target="#/justify-items" class="link" aria-disabled
-      >justify-items</Link
-    >
-  </li>
-  <li>
-    <Link target="#/align-content" class="link">align-content</Link>
-  </li>
-</ul>
+      <li>
+        <Link target="#/place-self" class="link" aria-disabled>place-self</Link>
+      </li>
+      <li>
+        <Link target="#/justify-items" class="link" aria-disabled
+          >justify-items</Link
+        >
+      </li>
+      <li>
+        <Link target="#/align-content" class="link">align-content</Link>
+      </li>
+    </ul>
+  {/snippet}
+</MainLayout>
 
 <style>
-  .title {
-    margin-block-start: 0;
-    margin-block-end: 1rem;
-  }
-
   .links {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 1rem;
-    list-style: none;
-    margin-inline: 0;
+    margin: 0;
     padding-inline: 0;
+    list-style: none;
 
     & > li {
       display: flex;

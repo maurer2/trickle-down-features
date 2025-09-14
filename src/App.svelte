@@ -13,7 +13,6 @@
   import JustifySelf from "./routes/justify-self/JustifySelf.svelte";
   import AlignSelf from "./routes/align-self/AlignSelf.svelte";
   import AlignContent from "./routes/align-content/AlignContent.svelte";
-  import GoBackLink from "./components/GoBackLink/GoBackLink.svelte";
 
   const routeNames = {
     home: "/",
@@ -52,18 +51,22 @@
   } as const;
 </script>
 
-<main class="container">
+<div class="container">
   <RouterContext {options}>
     <RouterView />
-    <GoBackLink />
   </RouterContext>
-</main>
+</div>
 
 <style>
   .container {
     margin-inline: auto;
     margin-block: 0;
-    padding: 2rem;
+    padding-inline: 2rem;
     inline-size: min(80ch, 100%);
+
+    /* https://www.cmuir.co.nz/post/container-query-units/ */
+    @container body (min-width: 0px) {
+      inline-size: min(var(--content-width), 100cqw);
+    }
   }
 </style>

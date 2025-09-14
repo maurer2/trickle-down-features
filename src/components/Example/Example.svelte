@@ -13,9 +13,9 @@
 </script>
 
 <div class="example">
-  <h3 class="subheadline">
+  <h4 class="example-headline">
     {@render title()}
-  </h3>
+  </h4>
   <div class="parent squircle {parentClass}">
     <div class="child squircle {childClass}">
       {@render label()}
@@ -24,7 +24,7 @@
 </div>
 
 <style>
-  .subheadline {
+  .example-headline {
     margin-block-start: 0;
     margin-block-end: 1rem;
   }
