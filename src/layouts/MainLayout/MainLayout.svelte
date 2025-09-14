@@ -6,28 +6,41 @@
 
   type MainLayoutProps = {
     pageTitle: Snippet;
-    headerContent?: Snippet;
     pageContent: Snippet;
+    filters?: Snippet;
   };
 
-  let { pageTitle, headerContent, pageContent }: MainLayoutProps = $props();
+  let { pageTitle, pageContent, filters }: MainLayoutProps = $props();
 </script>
 
-<article class="page">
-  <header class="header" role="banner">
-    <div class="inner-wrapper">
-      <h1 class="main-title">Trickle down features</h1>
-      <h2 class="page-title" id="page-title">{@render pageTitle()}</h2>
-      {@render headerContent?.()}
-    </div>
+{#snippet masthead()}
+  <header class="masthead">
+    <h1 class="title">Trickle Down Features</h1>
+    <h2 class="page-title" id="page-title">{@render pageTitle()}</h2>
+    <Link
+      linkClass="link-inverted"
+      target="https://github.com/maurer2/trickle-down-features"
+      >Go back to Readme</Link
+    >
   </header>
+{/snippet}
+
+<article class="page">
+  <div class="header">
+    <div class="inner-wrapper">
+      {@render masthead()}
+
+      {#if filters}
+        <search class="filters">
+          {@render filters()}
+        </search>
+      {/if}
+    </div>
+  </div>
   <main class="main">
     {@render pageContent()}
   </main>
   <div class="links">
-    <Link target="https://github.com/maurer2/trickle-down-features"
-      >Go to GitHub page</Link
-    >
     <GoBackLink />
   </div>
 </article>
@@ -46,30 +59,58 @@
     color: var(--gray-light);
 
     & > .inner-wrapper {
-      display: flex;
-      flex-direction: column;
       margin-inline: auto;
       padding-inline: 2rem;
       padding-block: 1rem;
       inline-size: min(var(--content-width), 100cqw);
-      gap: 0.75rem;
     }
   }
 
-  .main-title {
+  .masthead {
+    display: grid;
+    grid-template-areas:
+      "title"
+      "page-title"
+      "link";
+    gap: 1rem;
+
+    @container body (width > 32rem) {
+      grid-template-areas:
+        "title link"
+        "page-title page-title";
+      grid-template-columns: 1fr max-content;
+      align-items: center;
+    }
+  }
+
+  .title {
+    grid-area: title;
     margin-block: 0;
     font-size: 1.5rem;
     text-transform: capitalize;
   }
 
   .page-title {
+    grid-area: page-title;
     margin-block: 0;
     font-size: 1.25rem;
   }
 
+  .masthead :global(.link-inverted) {
+    grid-area: link;
+    border-color: var(--gray-light);
+
+    &:global(:where(:hover, :focus)) {
+      background: var(--gray-light);
+      color: var(--gray-dark);
+    }
+  }
+
+  .filters {
+    margin-block-start: 1rem;
+  }
+
   .links {
-    display: flex;
-    gap: 1rem;
     justify-self: start;
   }
 </style>

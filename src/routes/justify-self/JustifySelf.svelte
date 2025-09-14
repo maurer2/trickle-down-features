@@ -28,7 +28,7 @@
   {#snippet pageTitle()}
     justify-self
   {/snippet}
-  {#snippet headerContent()}
+  {#snippet filters()}
     <SelectField
       bind:selectedOption
       {options}

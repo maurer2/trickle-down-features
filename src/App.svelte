@@ -60,12 +60,11 @@
 <style>
   .container {
     margin-inline: auto;
-    margin-block: 0;
     padding-inline: 2rem;
     inline-size: min(80ch, 100%);
 
     /* https://www.cmuir.co.nz/post/container-query-units/ */
-    @container body (min-width: 0px) {
+    @container body (min-width: 0rem) {
       inline-size: min(var(--content-width), 100cqw);
     }
   }

@@ -27,7 +27,7 @@
   href={ariaDisabled ? undefined : target}
   role={ariaDisabled ? "link" : undefined}
   aria-disabled={ariaDisabled}
-  class="link squircle {linkClass}"
+  class="link {linkClass}"
   {...htmlAttributes}
 >
   {@render children()}</a

@@ -69,8 +69,8 @@
     font-weight: 700;
 
     &:where(:hover, :focus-within) {
-      background: var(--gray-dark);
-      color: var(--gray-light);
+      background: var(--gray-light);
+      color: var(--gray-dark);
     }
 
     &::picker-icon {
@@ -93,7 +93,6 @@
       border-end-end-radius: 25px;
       background: var(--pink-medium);
       color: var(--gray-light);
-      border: 0;
     }
   }
 

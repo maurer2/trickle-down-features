@@ -16,8 +16,8 @@
   <h4 class="example-headline">
     {@render title()}
   </h4>
-  <div class="parent squircle {parentClass}">
-    <div class="child squircle {childClass}">
+  <div class="parent {parentClass}">
+    <div class="child {childClass}">
       {@render label()}
     </div>
   </div>
@@ -33,6 +33,7 @@
     padding: 1rem;
     border: 3px dashed var(--gray-dark);
     border-radius: 25px;
+    corner-shape: squircle;
   }
 
   .child {
@@ -42,5 +43,6 @@
     font-weight: 700;
     background: var(--gray-dark);
     color: var(--gray-light);
+    corner-shape: squircle;
   }
 </style>

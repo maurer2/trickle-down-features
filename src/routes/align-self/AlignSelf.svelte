@@ -30,7 +30,7 @@
   {#snippet pageTitle()}
     align-self
   {/snippet}
-  {#snippet headerContent()}
+  {#snippet filters()}
     <SelectField
       bind:selectedOption
       {options}
