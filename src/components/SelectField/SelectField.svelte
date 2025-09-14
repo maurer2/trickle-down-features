@@ -32,11 +32,11 @@
         selectedOption = [newSelectedValue, options.get(newSelectedValue)!];
       }
     }
-    class="select squircle"
+    class="select"
     id={uid}
     {name}
   >
-    <option value={undefined}>Please select an option</option>
+    <option value={undefined}>Please select a value</option>
     {#each options as [value, label] (value)}
       <option {value}>{label}</option>
     {/each}
@@ -62,14 +62,15 @@
     /* https://www.joren.co/flex-grow-9999-hack/ */
     flex: 9999 0 250px;
     align-self: flex-start;
-    border: 2px solid var(--amber);
+    border: 2px solid var(--gray-light);
     border-radius: 25px;
+    corner-shape: squircle;
     outline-offset: 0.5rem;
     font-weight: 700;
 
     &:where(:hover, :focus-within) {
-      background: var(--black);
-      color: var(--white);
+      background: var(--gray-dark);
+      color: var(--gray-light);
     }
 
     &::picker-icon {
@@ -80,16 +81,19 @@
       rotate: 180deg;
     }
 
+    /* overlay */
     &::picker(select) {
       appearance: base-select;
       padding: 0;
-      margin-block-start: 1.5rem;
+      margin-block-start: 1rem;
       border: 0;
-      border-radius: 25px;
-      corner-shape: squircle; /* still required as utility class can't be applied */
-      background: var(--amber);
-      color: var(--black);
-      border: 3px solid var(--black);
+      corner-end-start-shape: squircle; /* bottom left corner */
+      border-end-start-radius: 25px;
+      corner-end-end-shape: squircle; /* bottom right corner */
+      border-end-end-radius: 25px;
+      background: var(--pink-medium);
+      color: var(--gray-light);
+      border: 0;
     }
   }
 
@@ -108,8 +112,8 @@
     }
 
     &:where(:hover, :focus) {
-      background: var(--black);
-      color: var(--white);
+      background: var(--gray-dark);
+      color: var(--gray-light);
 
       &:before {
         position: absolute;
@@ -118,8 +122,8 @@
     }
 
     &:where(:checked) {
-      background: var(--black);
-      color: var(--white);
+      background: var(--gray-dark);
+      color: var(--gray-light);
       font-weight: 700;
 
       &:before {

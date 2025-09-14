@@ -20,5 +20,5 @@
 </script>
 
 {#if isSubpage}
-  <Link target="#/">Go back</Link>
+  <Link target="#/">Go to examples page</Link>
 {/if}

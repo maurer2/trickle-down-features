@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { Snippet } from "svelte";
 
+  import Link from "../../components/Link/Link.svelte";
   import GoBackLink from "../../components/GoBackLink/GoBackLink.svelte";
 
   type MainLayoutProps = {
@@ -23,9 +24,12 @@
   <main class="main">
     {@render pageContent()}
   </main>
-  <footer class="footer">
+  <div class="links">
+    <Link target="https://github.com/maurer2/trickle-down-features"
+      >Go to GitHub page</Link
+    >
     <GoBackLink />
-  </footer>
+  </div>
 </article>
 
 <style>
@@ -38,8 +42,8 @@
   .header {
     /* full bleed */
     margin-inline: calc(-50cqw + 50%);
-    background: var(--black);
-    color: var(--amber);
+    background: var(--pink-medium);
+    color: var(--gray-light);
 
     & > .inner-wrapper {
       display: flex;
@@ -63,11 +67,9 @@
     font-size: 1.25rem;
   }
 
-  /* .main {
-    display: block;
+  .links {
+    display: flex;
+    gap: 1rem;
+    justify-self: start;
   }
-
-  .footer {
-    display: block;
-  } */
 </style>

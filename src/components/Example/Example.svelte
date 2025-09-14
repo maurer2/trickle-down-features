@@ -31,7 +31,7 @@
 
   .parent {
     padding: 1rem;
-    border: 3px dashed var(--black);
+    border: 3px dashed var(--gray-dark);
     border-radius: 25px;
   }
 
@@ -40,7 +40,7 @@
     border-radius: 25px;
     text-align: center;
     font-weight: 700;
-    background: var(--black);
-    color: var(--white);
+    background: var(--gray-dark);
+    color: var(--gray-light);
   }
 </style>

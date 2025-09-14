@@ -38,8 +38,9 @@
     display: inline-block;
     padding-inline: 1rem;
     padding-block: 0.5rem;
-    border: 2px solid var(--black);
+    border: 2px solid var(--gray-dark);
     border-radius: 25px;
+    corner-shape: squircle;
     font-weight: 700;
     text-align: center;
     text-decoration: none;
@@ -53,8 +54,8 @@
     }
 
     &:where(:hover, :focus):not([aria-disabled]) {
-      background: var(--black);
-      color: var(--white);
+      background: var(--gray-dark);
+      color: var(--gray-light);
     }
   }
 </style>
