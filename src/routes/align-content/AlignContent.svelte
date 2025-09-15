@@ -75,12 +75,4 @@
     margin-block-start: 0;
     margin-block-end: 1rem;
   }
-
-  .text-list {
-    display: flex;
-    margin: 0;
-    padding-inline-start: 1rem;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
 </style>

@@ -25,7 +25,7 @@
   </header>
 {/snippet}
 
-<article class="page">
+<div class="page">
   <div class="header">
     <div class="inner-wrapper">
       {@render masthead()}
@@ -43,7 +43,7 @@
   <div class="links">
     <GoBackLink />
   </div>
-</article>
+</div>
 
 <style>
   .page {

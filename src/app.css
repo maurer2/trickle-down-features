@@ -64,4 +64,12 @@
   .code {
     font-weight: 700;
   }
+
+  .text-list {
+    display: flex;
+    margin: 0;
+    padding-inline-start: 1rem;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
 }

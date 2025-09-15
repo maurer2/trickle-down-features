@@ -4,18 +4,18 @@
 
 <ul class="links" aria-label="Example horizontal list">
   <li>
-    <Link target="#/place-self" class="link">
-      A long label that wraps to multiple lines</Link
+    <Link target="#/place-self" linkClass="link"
+      >A long label that wraps to multiple lines</Link
     >
   </li>
   <li>
-    <Link target="#/place-self" class="link">A somewhat shorter label</Link>
+    <Link target="#/place-self" linkClass="link">A somewhat shorter label</Link>
   </li>
   <li>
-    <Link target="#/place-self" class="link">An even shorter label</Link>
+    <Link target="#/place-self" linkClass="link">An even shorter label</Link>
   </li>
   <li>
-    <Link target="#/place-self" class="link" aria-label="A label">
+    <Link target="#/place-self" linkClass="link" aria-label="A label">
       <span class="icon" aria-hidden="true">&#127991;</span></Link
     >
   </li>
