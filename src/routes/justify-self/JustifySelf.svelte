@@ -39,9 +39,9 @@
   {/snippet}
   {#snippet pageContent()}
     <article>
-      <section class="examples">
+      <section class="main-section">
         <h3 class="headline">Examples</h3>
-        <section
+        <div
           class="example"
           style="--justify-self: {selectedOption?.[0] ?? 'auto'}"
         >
@@ -68,8 +68,8 @@
               {/snippet}
             </Example>
           </div>
-        </section>
-        <section
+        </div>
+        <div
           class="example"
           style="--justify-self: {selectedOption?.[0] ?? 'auto'}"
         >
@@ -84,11 +84,9 @@
               {/snippet}
             </Example>
           </div>
-        </section>
+        </div>
       </section>
-    </article>
-    <article>
-      <section class="examples">
+      <section class="main-section">
         <h3 class="headline">Use cases</h3>
         <div id="use-case-1">
           <h4 class="example-headline">
@@ -119,7 +117,7 @@
 </MainLayout>
 
 <style>
-  .example {
+  .main-section {
     margin-block-end: 2rem;
   }
 
@@ -131,27 +129,27 @@
     margin-block-start: 0;
     margin-block-end: 1rem;
   }
-  .examples :where(:global(.parent1), :global(.parent2)) {
+  .example :where(:global(.parent1), :global(.parent2)) {
     position: relative;
   }
 
-  .examples :global(.parent3) {
+  .example :global(.parent3) {
     position: relative;
     block-size: 200px;
   }
-  .examples :global(.child1) {
+  .example :global(.child1) {
     display: block;
     inline-size: min(200px, 100%);
     justify-self: var(--justify-self, auto);
   }
 
-  .examples :global(.child2) {
+  .example :global(.child2) {
     display: block;
     max-inline-size: 100%; /* to prevent overflow on small viewports */
     justify-self: var(--justify-self, auto);
   }
 
-  .examples :global(.child3) {
+  .example :global(.child3) {
     position: absolute;
     inset: 1rem; /* important */
     justify-self: var(--justify-self, auto);

@@ -29,50 +29,53 @@
     align-content
   {/snippet}
   {#snippet pageContent()}
-    <div
-      class="examples"
-      style="--align-content: {selectedOption?.[0] ?? 'normal'}"
-    >
-      <h3 class="headline">Use cases</h3>
-      <section id="horizontal-list">
-        <h4>
-          Horizontal list with labels of of varying sizes inside columns of
-          equal height (<code class="code">ul&gt;li&gt;a/button</code>)
-        </h4>
-        <div>
-          <HorizontalListExample />
+    <article>
+      <section class="main-section">
+        <h3 class="headline">Use cases</h3>
+        <div id="use-case-1">
+          <h4>
+            Horizontal list with labels of of varying sizes inside columns of
+            equal height (<code class="code">ul&gt;li&gt;a/button</code>)
+          </h4>
+          <div class="example-component">
+            <HorizontalListExample />
+          </div>
+          <ul class="text-list">
+            <li>
+              <code class="code">li</code> elements can be set to
+              <code class="code">display:contents</code>
+              and don't need to be a made flex containers in order to use align-content
+              to vertically centre the <code class="code">&lt;a&gt;</code>/
+              <code class="code">&lt;button&gt;</code> elements inside
+            </li>
+            <li>
+              The <code class="code">&lt;a&gt;</code> or
+              <code class="code">&lt;button&gt;</code> elements can be simple
+              block-elements, so no disabling of unwanted flexbox behavior (i.e.<code
+                class="code">flex-grow</code
+              >
+              being disabled by default) is necessary. Content but can still be vertically
+              centred by using
+              <code class="code">align-content</code>.
+            </li>
+          </ul>
         </div>
-        <ul class="text-list">
-          <li>
-            <code class="code">li</code> elements can be set to
-            <code class="code">display:contents</code>
-            and don't need to be a made flex containers in order to use align-content
-            to vertically centre the <code class="code">&lt;a&gt;</code>/
-            <code class="code">&lt;button&gt;</code> elements inside
-          </li>
-          <li>
-            The <code class="code">&lt;a&gt;</code> or
-            <code class="code">&lt;button&gt;</code> elements can be simple
-            block-elements, so no disabling of unwanted flexbox behavior (i.e.<code
-              class="code">flex-grow</code
-            >
-            being disabled by default) is necessary. Content but can still be vertically
-            centred by using
-            <code class="code">align-content</code>.
-          </li>
-        </ul>
       </section>
-    </div>
+    </article>
   {/snippet}
 </MainLayout>
 
 <style>
-  .examples {
-    margin-block-end: 1rem;
+  .main-section {
+    margin-block-end: 2rem;
   }
 
   .headline {
     margin-block-start: 0;
     margin-block-end: 1rem;
+  }
+
+  .example-component {
+    margin-block: 1rem;
   }
 </style>

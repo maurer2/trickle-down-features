@@ -39,37 +39,45 @@
     />
   {/snippet}
   {#snippet pageContent()}
-    <div class="examples" style="--align-self: {selectedOption?.[0] ?? 'auto'}">
-      <h3 class="headline">
-        Absolute positioned child elements inside relative positioned parent
-      </h3>
-      <section class="example-wrapper">
-        <Example parentClass="parent1" childClass="child1">
-          {#snippet title()}
-            With non-"auto" value for inset/inset-inline
-          {/snippet}
-          {#snippet label()}
-            Absolute positioned element
-          {/snippet}
-        </Example>
+    <article>
+      <section class="main-section">
+        <h3 class="headline">Examples</h3>
+        <div
+          class="example"
+          style="--align-self: {selectedOption?.[0] ?? 'auto'}"
+        >
+          <h4 class="example-headline">
+            Absolute positioned child elements inside relative positioned parent
+          </h4>
+          <div class="example-wrapper">
+            <Example parentClass="parent1" childClass="child1">
+              {#snippet title()}
+                With non-"auto" value for inset/inset-inline
+              {/snippet}
+              {#snippet label()}
+                Absolute positioned element
+              {/snippet}
+            </Example>
+          </div>
+          <div class="example-wrapper">
+            <Example parentClass="parent2" childClass="child2">
+              {#snippet title()}
+                With non-auto value for inset
+              {/snippet}
+              {#snippet label()}
+                Absolute positioned element
+              {/snippet}
+            </Example>
+          </div>
+        </div>
       </section>
-      <section class="example-wrapper">
-        <Example parentClass="parent2" childClass="child2">
-          {#snippet title()}
-            With non-auto value for inset
-          {/snippet}
-          {#snippet label()}
-            Absolute positioned element
-          {/snippet}
-        </Example>
-      </section>
-    </div>
+    </article>
   {/snippet}
 </MainLayout>
 
 <style>
-  .examples {
-    margin-block-end: 1rem;
+  .main-section {
+    margin-block-end: 2rem;
   }
 
   .example-wrapper:not(:last-child) {
@@ -83,12 +91,12 @@
   }
 
   /* reference to wrapper element and :global required to pass style class as prop to child */
-  .examples :where(:global(.parent1), :global(.parent2)) {
+  .example :where(:global(.parent1), :global(.parent2)) {
     position: relative;
     block-size: 200px;
   }
 
-  .examples :global(.child1) {
+  .example :global(.child1) {
     position: absolute;
     inset: 1rem; /* important */
     /* inline-size: min(200px, 100%); */
@@ -96,7 +104,7 @@
     align-self: var(--align-self, auto);
   }
 
-  .examples :global(child2) {
+  .example :global(child2) {
     position: absolute;
     inset: auto;
     /* inline-size: min(200px, 100%); */
