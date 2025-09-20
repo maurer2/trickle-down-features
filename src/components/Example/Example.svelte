@@ -27,6 +27,7 @@
   .example-headline {
     margin-block-start: 0;
     margin-block-end: 1rem;
+    font-weight: 700;
   }
 
   .parent {
