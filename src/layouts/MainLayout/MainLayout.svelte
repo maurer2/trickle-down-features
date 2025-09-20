@@ -54,7 +54,7 @@
 
   .header {
     /* full bleed */
-    margin-inline: calc(-50cqw + 50%);
+    margin-inline: calc(-50cqi + 50%);
     background: var(--pink-medium);
     color: var(--gray-light);
 
@@ -62,7 +62,7 @@
       margin-inline: auto;
       padding-inline: 2rem;
       padding-block: 1rem;
-      inline-size: min(var(--content-width), 100cqw);
+      inline-size: min(var(--content-width), 100cqi);
     }
   }
 

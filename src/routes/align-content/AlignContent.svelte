@@ -50,35 +50,37 @@
               Table cells (<code class="code">&lt;th&gt;</code> and
               <code class="code">&lt;td&gt;</code>)
             </figcaption>
-            <!-- https://www.w3.org/WAI/tutorials/tables/caption-summary/ -->
-            <table aria-labelledby="example-1-title" class="table">
-              <thead>
-                <tr>
-                  <th scope="col">Column 1 header</th>
-                  <th scope="col"
-                    >Column 2 header <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed eiusmod tempor incidunt ut labore et dolore magna
-                      aliqua.
-                    </p></th
-                  >
-                  <th scope="col">Column 3 header</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">Row 1 header</th>
-                  <td>Column 2</td>
-                  <td
-                    >Column 3 <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed eiusmod tempor incidunt ut labore et dolore magna
-                      aliqua.
-                    </p></td
-                  >
-                </tr>
-              </tbody>
-            </table>
+            <div class="scroll-container">
+              <!-- https://www.w3.org/WAI/tutorials/tables/caption-summary/ -->
+              <table aria-labelledby="example-1-title" class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Column 1 header</th>
+                    <th scope="col"
+                      >Column 2 header <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed eiusmod tempor incidunt ut labore et dolore magna
+                        aliqua.
+                      </p></th
+                    >
+                    <th scope="col">Column 3 header</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Row 1 header</th>
+                    <td>Column 2</td>
+                    <td
+                      >Column 3 <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed eiusmod tempor incidunt ut labore et dolore magna
+                        aliqua.
+                      </p></td
+                    >
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </figure>
         </div>
       </section>
@@ -158,10 +160,15 @@
     margin-block: 1rem;
   }
 
+  .scroll-container {
+    overflow-x: auto;
+    width: min(calc(var(--content-width) - 4rem), calc(100cqi - 4rem));
+  }
+
   .table {
     table-layout: fixed;
-    /* border-collapse: collapse; */
     border-spacing: 0;
+    /* border-collapse: collapse; */
 
     & th,
     & td {
