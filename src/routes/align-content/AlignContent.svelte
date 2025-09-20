@@ -50,7 +50,7 @@
               Table cells (<code class="code">&lt;th&gt;</code> and
               <code class="code">&lt;td&gt;</code>)
             </figcaption>
-            <div class="scroll-container">
+            <div class="scroll-inline-container">
               <!-- https://www.w3.org/WAI/tutorials/tables/caption-summary/ -->
               <table aria-labelledby="example-1-title" class="table">
                 <thead>
@@ -160,14 +160,11 @@
     margin-block: 1rem;
   }
 
-  .scroll-container {
-    overflow-x: auto;
-    width: min(calc(var(--content-width) - 4rem), calc(100cqi - 4rem));
-  }
-
   .table {
     table-layout: fixed;
     border-spacing: 0;
+    min-inline-size: 28rem;
+    max-inline-size: 100%;
     /* border-collapse: collapse; */
 
     & th,

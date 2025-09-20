@@ -27,7 +27,7 @@
 
 <div class="page">
   <div class="header">
-    <div class="inner-wrapper">
+    <div class="inner-wrapper inner-page">
       {@render masthead()}
 
       {#if filters}
@@ -37,10 +37,10 @@
       {/if}
     </div>
   </div>
-  <main class="main">
+  <main class="main inner-page">
     {@render pageContent()}
   </main>
-  <div class="links">
+  <div class="links inner-page">
     <GoBackLink />
   </div>
 </div>
@@ -50,6 +50,13 @@
     display: grid;
     grid-auto-rows: auto;
     gap: 1rem;
+    margin-block-end: 2rem;
+  }
+
+  .inner-page {
+    margin-inline: auto;
+    padding-inline: 2rem;
+    inline-size: var(--inner-width);
   }
 
   .header {
@@ -59,10 +66,7 @@
     color: var(--gray-light);
 
     & > .inner-wrapper {
-      margin-inline: auto;
-      padding-inline: 2rem;
       padding-block: 1rem;
-      inline-size: min(var(--content-width), 100cqi);
     }
   }
 

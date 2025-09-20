@@ -30,6 +30,8 @@
     -moz-osx-font-smoothing: grayscale;
     background: var(--gray-light);
     color: var(--gray-dark);
+    scrollbar-color: var(--gray-dark) var(--gray-light);
+    scrollbar-width: thin;
   }
 
   body {
@@ -71,5 +73,10 @@
     padding-inline-start: 1rem;
     flex-direction: column;
     gap: 0.5rem;
+  }
+
+  .scroll-inline-container {
+    overflow-x: auto;
+    max-width: 100%;
   }
 }

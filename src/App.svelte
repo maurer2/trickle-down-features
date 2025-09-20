@@ -59,13 +59,14 @@
 
 <style>
   .container {
-    margin-inline: auto;
-    padding-inline: 2rem;
-    inline-size: min(80ch, 100%);
+    --inner-width: min(80ch, 100%);
 
     /* https://www.cmuir.co.nz/post/container-query-units/ */
     @container body (min-width: 0rem) {
-      inline-size: min(var(--content-width), 100cqw);
+      --inner-width: min(var(--content-width), 100cqw);
     }
+
+    margin-inline: auto;
+    inline-size: --inner-width;
   }
 </style>
