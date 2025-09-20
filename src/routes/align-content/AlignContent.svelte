@@ -108,7 +108,19 @@
               >
               being disabled by default) is necessary. Content but can still be vertically
               centred by using
-              <code class="code">align-content</code>.
+              <code class="code">align-content</code>
+            </li>
+          </ul>
+        </div>
+        <div id="use-case-2">
+          <h4>
+            Unifies CSS properties for vertical alignment of child content
+          </h4>
+          <ul class="text-list">
+            <li>
+              Renders the (<code class="code">vertical-align</code>) property
+              within table cells unnecessary and brings it in line with other
+              layout contexts
             </li>
           </ul>
         </div>
