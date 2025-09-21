@@ -8,7 +8,7 @@
     Examples
   {/snippet}
   {#snippet pageContent()}
-    <ul class="links" aria-describedby="page-title">
+    <ul class="links" aria-labelledby="page-title">
       <li><Link target="#/justify-self" class="link">justify-self</Link></li>
       <li><Link target="#/align-self" class="link">align-self</Link></li>
 

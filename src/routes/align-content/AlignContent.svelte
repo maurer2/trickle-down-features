@@ -165,7 +165,6 @@
     border-spacing: 0;
     min-inline-size: 28rem;
     max-inline-size: 100%;
-    /* border-collapse: collapse; */
 
     & th,
     & td {
@@ -210,7 +209,7 @@
         }
       }
     }
-    &:has(> tfoot) {
+    /* &:has(> tfoot) {
       tfoot > tr:last-child th,
       tfoot > tr:last-child td {
         border-block-end: 2px solid var(--gray-dark);
@@ -224,6 +223,6 @@
           corner-end-end-shape: squircle;
         }
       }
-    }
+    } */
   }
 </style>

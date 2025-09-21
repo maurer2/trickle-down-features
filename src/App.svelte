@@ -51,22 +51,6 @@
   } as const;
 </script>
 
-<div class="container">
-  <RouterContext {options}>
-    <RouterView />
-  </RouterContext>
-</div>
-
-<style>
-  .container {
-    --inner-width: min(80ch, 100%);
-
-    /* https://www.cmuir.co.nz/post/container-query-units/ */
-    @container body (min-width: 0rem) {
-      --inner-width: min(var(--content-width), 100cqw);
-    }
-
-    margin-inline: auto;
-    inline-size: --inner-width;
-  }
-</style>
+<RouterContext {options}>
+  <RouterView />
+</RouterContext>

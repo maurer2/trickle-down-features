@@ -12,7 +12,6 @@
   --content-width: 80ch;
 
   --transition-duration: 0.25s;
-
   @media (prefers-reduced-motion: reduce) {
     --transition-duration: 0;
   }
@@ -40,6 +39,12 @@
   }
 
   .app {
+    --inner-width: min(--content-width, 100%);
+    /* https://www.cmuir.co.nz/post/container-query-units/ */
+    @container body (min-width: 0rem) {
+      --inner-width: min(var(--content-width), 100cqw);
+    }
+
     display: contents;
   }
 
@@ -59,10 +64,6 @@
 }
 
 @layer utilities {
-  /* .squircle {
-    corner-shape: squircle;
-  } */
-
   .code {
     font-weight: 700;
   }
