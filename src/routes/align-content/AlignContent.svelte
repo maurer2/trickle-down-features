@@ -51,35 +51,37 @@
               <code class="code">&lt;td&gt;</code>)
             </figcaption>
             <div class="scroll-inline-container">
-              <!-- https://www.w3.org/WAI/tutorials/tables/caption-summary/ -->
-              <table aria-labelledby="example-1-title" class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">Column 1 header</th>
-                    <th scope="col"
-                      >Column 2 header <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed eiusmod tempor incidunt ut labore et dolore magna
-                        aliqua.
-                      </p></th
-                    >
-                    <th scope="col">Column 3 header</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">Row 1 header</th>
-                    <td>Column 2</td>
-                    <td
-                      >Column 3 <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed eiusmod tempor incidunt ut labore et dolore magna
-                        aliqua.
-                      </p></td
-                    >
-                  </tr>
-                </tbody>
-              </table>
+              <div class="table-wrapper">
+                <!-- https://www.w3.org/WAI/tutorials/tables/caption-summary/ -->
+                <table aria-labelledby="example-1-title" class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Column 1 header</th>
+                      <th scope="col"
+                        >Column 2 header <p>
+                          Lorem ipsum dolor sit amet, consectetur adipiscing
+                          elit, sed eiusmod tempor incidunt ut labore et dolore
+                          magna aliqua.
+                        </p></th
+                      >
+                      <th scope="col">Column 3 header</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">Row 1 header</th>
+                      <td>Column 2</td>
+                      <td
+                        >Column 3 <p>
+                          Lorem ipsum dolor sit amet, consectetur adipiscing
+                          elit, sed eiusmod tempor incidunt ut labore et dolore
+                          magna aliqua.
+                        </p></td
+                      >
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </figure>
         </div>
@@ -160,69 +162,28 @@
     margin-block: 1rem;
   }
 
+  .table-wrapper {
+    border: 2px solid var(--gray-dark);
+    border-radius: 25px;
+    corner-shape: squircle;
+    overflow: clip;
+    overflow-clip-margin: content-box; /* https://nerdy.dev/perfect-nested-radius-with-overflow-clip-margin */
+  }
+
   .table {
     table-layout: fixed;
     border-spacing: 0;
     min-inline-size: 28rem;
     max-inline-size: 100%;
+    border-collapse: collapse;
+    border-style: hidden; /* only show inside borders: https://stackoverflow.com/a/3349181/1870482 */
 
     & th,
     & td {
       padding-inline: 1rem;
       padding-block: 0.5rem;
+      border: 2px solid var(--gray-dark);
       align-content: var(--align-content, normal);
-      border-inline-start: 2px solid var(--gray-dark);
-      border-block-start: 2px solid var(--gray-dark);
-
-      &:last-child {
-        border-inline-end: 2px solid var(--gray-dark);
-      }
     }
-
-    &:has(> thead) {
-      thead > tr:first-child th {
-        &:first-child {
-          border-start-start-radius: 25px;
-          corner-start-start-shape: squircle;
-        }
-
-        &:last-child {
-          border-start-end-radius: 25px;
-          corner-start-end-shape: squircle;
-        }
-      }
-    }
-
-    &:has(> tbody):not(:has(> tfoot)) {
-      tbody > tr:last-child th,
-      tbody > tr:last-child td {
-        border-block-end: 2px solid var(--gray-dark);
-
-        &:first-child {
-          border-end-start-radius: 25px;
-          corner-end-start-shape: squircle;
-        }
-
-        &:last-child {
-          border-end-end-radius: 25px;
-          corner-end-end-shape: squircle;
-        }
-      }
-    }
-    /* &:has(> tfoot) {
-      tfoot > tr:last-child th,
-      tfoot > tr:last-child td {
-        border-block-end: 2px solid var(--gray-dark);
-        &:first-child {
-          border-end-start-radius: 25px;
-          corner-end-start-shape: squircle;
-        }
-
-        &:last-child {
-          border-end-end-radius: 25px;
-          corner-end-end-shape: squircle;
-        }
-      }
-    } */
   }
 </style>
