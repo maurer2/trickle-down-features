@@ -11,7 +11,6 @@
     <ul class="links" aria-labelledby="page-title">
       <li><Link target="#/justify-self" class="link">justify-self</Link></li>
       <li><Link target="#/align-self" class="link">align-self</Link></li>
-
       <li>
         <Link target="#/place-self" class="link" aria-disabled>place-self</Link>
       </li>

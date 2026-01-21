@@ -85,7 +85,7 @@
     &::picker(select) {
       appearance: base-select;
       padding: 0;
-      margin-block-start: 1rem;
+      margin-block-start: 0.5rem;
       border: 0;
       corner-end-start-shape: var(--corner-shape); /* bottom left corner */
       border-end-start-radius: var(--border-radius);
@@ -93,6 +93,10 @@
       border-end-end-radius: var(--border-radius);
       background: var(--pink-medium);
       color: var(--gray-light);
+
+      @container body (width > 34rem) {
+        margin-block-start: 2rem;
+      }
     }
   }
 
