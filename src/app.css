@@ -1,5 +1,6 @@
-@layer defaults, utilities;
+@layer reset, defaults, utilities;
 
+@import "modern-normalize" layer(reset);
 
 @layer defaults {
   :root {

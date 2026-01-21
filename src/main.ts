@@ -1,5 +1,4 @@
 import { mount } from "svelte";
-import "modern-normalize";
 import "./app.css";
 
 import App from "./App.svelte";
