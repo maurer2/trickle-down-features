@@ -93,8 +93,11 @@
       border-end-end-radius: var(--border-radius);
       background: var(--pink-medium);
       color: var(--gray-light);
+    }
 
-      @container body (width > 34rem) {
+    /* nested container query inside &::picker(select) is compiled to invalid CSS */
+    @container body (width > 34rem) {
+      &::picker(select) {
         margin-block-start: 2rem;
       }
     }
