@@ -63,7 +63,12 @@
     grid-auto-columns: auto;
     gap: 1rem;
 
-    @container body (width > 34rem) {
+    @container body (inline-size > 34rem) {
+      grid-template-columns: 1fr max-content;
+      align-items: center;
+    }
+
+    @container style(--current-body-container-size: large) {
       grid-template-columns: 1fr max-content;
       align-items: center;
     }

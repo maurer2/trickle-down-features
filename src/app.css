@@ -2,6 +2,12 @@
 
 @import "modern-normalize" layer(reset);
 
+@property --current-body-container-size {
+  syntax: "<ident>";
+  inherits: false;
+  initial-value: small;
+}
+
 @layer defaults {
   :root {
     /* adapted from tailwind and simplified/rounded: https://tailwindcss.com/docs/backgroundcolor */
@@ -45,13 +51,19 @@
   }
 
   .app {
+    --current-body-container-size: small;
     --inner-width: min(--content-width, 100%);
+
+    display: contents;
+
     /* https://www.cmuir.co.nz/post/container-query-units/ */
     @container body (min-width: 0rem) {
       --inner-width: min(var(--content-width), 100cqw);
     }
 
-    display: contents;
+    @container body (min-width: 34rem) {
+      --current-body-container-size: large;
+    }
   }
 
   a:where(:link, :visited) {

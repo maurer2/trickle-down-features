@@ -96,7 +96,13 @@
     }
 
     /* nested container query inside &::picker(select) is compiled to invalid CSS */
-    @container body (width > 34rem) {
+    @container body (inline-size > 34rem) {
+      &::picker(select) {
+        margin-block-start: 2rem;
+      }
+    }
+
+    @container style(--current-body-container-size: large) {
       &::picker(select) {
         margin-block-start: 2rem;
       }
