@@ -164,8 +164,8 @@
 
   .table-wrapper {
     border: 2px solid var(--gray-dark);
-    border-radius: 25px;
-    corner-shape: squircle;
+    border-radius: var(--border-radius);
+    corner-shape: var(--corner-shape);
     overflow: clip;
     overflow-clip-margin: content-box; /* https://nerdy.dev/perfect-nested-radius-with-overflow-clip-margin */
   }

@@ -39,8 +39,8 @@
     padding-inline: 1rem;
     padding-block: 0.5rem;
     border: 2px solid var(--gray-dark);
-    border-radius: 25px;
-    corner-shape: squircle;
+    border-radius: var(--border-radius);
+    corner-shape: var(--corner-shape);
     font-weight: 700;
     text-align: center;
     text-decoration: none;

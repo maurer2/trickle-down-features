@@ -33,17 +33,17 @@
   .parent {
     padding: 1rem;
     border: 3px dashed var(--gray-dark);
-    border-radius: 25px;
-    corner-shape: squircle;
+    border-radius: var(--border-radius);
+    corner-shape: var(--corner-shape);
   }
 
   .child {
     padding: inherit;
-    border-radius: 25px;
+    border-radius: var(--border-radius);
     text-align: center;
     font-weight: 700;
     background: var(--gray-dark);
     color: var(--gray-light);
-    corner-shape: squircle;
+    corner-shape: var(--corner-shape);
   }
 </style>

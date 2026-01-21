@@ -63,8 +63,8 @@
     flex: 9999 0 250px;
     align-self: flex-start;
     border: 2px solid var(--gray-light);
-    border-radius: 25px;
-    corner-shape: squircle;
+    border-radius: var(--border-radius);
+    corner-shape: var(--corner-shape);
     outline-offset: 0.5rem;
     font-weight: 700;
 
@@ -87,10 +87,10 @@
       padding: 0;
       margin-block-start: 1rem;
       border: 0;
-      corner-end-start-shape: squircle; /* bottom left corner */
-      border-end-start-radius: 25px;
-      corner-end-end-shape: squircle; /* bottom right corner */
-      border-end-end-radius: 25px;
+      corner-end-start-shape: var(--corner-shape); /* bottom left corner */
+      border-end-start-radius: var(--border-radius);
+      corner-end-end-shape: var(--corner-shape); /* bottom right corner */
+      border-end-end-radius: var(--border-radius);
       background: var(--pink-medium);
       color: var(--gray-light);
     }

@@ -1,19 +1,24 @@
 @layer defaults, utilities;
 
-:root {
-  /* adapted from tailwind and simplified/rounded: https://tailwindcss.com/docs/backgroundcolor */
-  --pink-light: oklch(0.8 0.1 345);
-  --pink-medium: oklch(0.6 0.2 3);
-  --pink-dark: oklch(0.4 0.2 2);
-  --gray-light: oklch(0.9 0 265);
-  --gray-medium: oklch(0.6 0.02 265);
-  --gray-dark: oklch(0.3 0.03 257);
 
-  --content-width: 80ch;
+@layer defaults {
+  :root {
+    /* adapted from tailwind and simplified/rounded: https://tailwindcss.com/docs/backgroundcolor */
+    --pink-light: oklch(0.8 0.1 345);
+    --pink-medium: oklch(0.6 0.2 3);
+    --pink-dark: oklch(0.4 0.2 2);
+    --gray-light: oklch(0.9 0 265);
+    --gray-medium: oklch(0.6 0.02 265);
+    --gray-dark: oklch(0.3 0.03 257);
 
-  --transition-duration: 0.25s;
-  @media (prefers-reduced-motion: reduce) {
-    --transition-duration: 0;
+    --content-width: 80ch;
+    --border-radius: 25px;
+    --corner-shape: squircle;
+
+    --transition-duration: 0.25s;
+    @media (prefers-reduced-motion: reduce) {
+      --transition-duration: 0;
+    }
   }
 }
 
