@@ -1,4 +1,4 @@
-@layer reset, defaults, utilities;
+@layer reset, defaults, test-stuff, utilities;
 
 @import "modern-normalize" layer(reset);
 
@@ -78,6 +78,19 @@
 
   a:where(:focus-visible) {
     outline-offset: 0.5rem;
+  }
+}
+
+@layer test-stuff {
+  /* not yet supported in svelte files. svelte css compiler won't compile */
+  .mau {
+    margin-block-start: if(
+      style(--current-body-container-size: small): 0;
+        style(--current-body-container-size: large): 1px;
+    );
+    margin-block-end: if(
+      style(--current-body-container-size: large): 1px; else: 0;
+    );
   }
 }
 

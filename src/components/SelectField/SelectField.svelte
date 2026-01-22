@@ -95,7 +95,6 @@
       color: var(--gray-light);
     }
 
-    /* nested container query inside &::picker(select) is compiled to invalid CSS */
     @container body (inline-size > 34rem) {
       &::picker(select) {
         margin-block-start: 2rem;

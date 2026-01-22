@@ -14,7 +14,7 @@
 </script>
 
 {#snippet masthead()}
-  <header class="masthead">
+  <header class="masthead mau">
     <h1 class="title">Trickle Down Features</h1>
     <Link
       linkClass="link-inverted"
