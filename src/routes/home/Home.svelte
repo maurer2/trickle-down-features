@@ -1,9 +1,9 @@
 <script lang="ts">
-  import MainLayout from "../../layouts/MainLayout/MainLayout.svelte";
+  import Page from "../../layouts/Page/Page.svelte";
   import Link from "../../components/Link/Link.svelte";
 </script>
 
-<MainLayout>
+<Page>
   {#snippet pageTitle()}
     Examples
   {/snippet}
@@ -24,7 +24,7 @@
       </li>
     </ul>
   {/snippet}
-</MainLayout>
+</Page>
 
 <style>
   .links {

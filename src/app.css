@@ -1,4 +1,4 @@
-@layer reset, defaults, test-stuff, utilities;
+@layer reset, defaults, layout, experimental, utilities;
 
 @import "modern-normalize" layer(reset);
 
@@ -50,11 +50,9 @@
     container-type: inline-size;
   }
 
-  .app {
+  .page {
     --current-body-container-size: small;
     --inner-width: min(--content-width, 100%);
-
-    display: contents;
 
     /* https://www.cmuir.co.nz/post/container-query-units/ */
     @container body (min-width: 0rem) {
@@ -66,22 +64,36 @@
     }
   }
 
-  a:where(:link, :visited) {
-    color: var(--pink-medium);
-    text-decoration: none;
-  }
+  a {
+    &:where(:link, :visited) {
+      color: var(--pink-medium);
+      text-decoration: none;
+    }
 
-  a:where(:hover, :focus) {
-    color: var(--pink-dark);
-    text-decoration: underline;
-  }
+    &:where(:hover, :focus-visible) {
+      color: var(--pink-dark);
+      text-decoration: underline;
+    }
 
-  a:where(:focus-visible) {
-    outline-offset: 0.5rem;
+    &:where(:focus-visible) {
+      outline: 2px solid var(--pink-dark);
+      outline-offset: 0.5rem;
+    }
   }
 }
 
-@layer test-stuff {
+@layer layout {
+  html,
+  body {
+    min-block-size: stretch;
+  }
+
+  .app {
+    display: contents;
+  }
+}
+
+@layer experimental {
   /* not yet supported in svelte files. svelte css compiler won't compile */
   .mau {
     margin-block-start: if(
@@ -95,6 +107,16 @@
 }
 
 @layer utilities {
+  .container--constrained {
+    margin-inline: auto;
+    padding: 2rem;
+    inline-size: var(--inner-width);
+  }
+
+  .container--full-bleed {
+    margin-inline: calc(-50cqi + 50%);
+  }
+
   .code {
     font-weight: 700;
   }

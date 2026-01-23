@@ -2,7 +2,7 @@
   import type { Property } from "csstype";
   import type { Entry, Simplify } from "type-fest";
 
-  import MainLayout from "../../layouts/MainLayout/MainLayout.svelte";
+  import Page from "../../layouts/Page/Page.svelte";
   import SelectField from "../../components/SelectField/SelectField.svelte";
   import Example from "../../components/Example/Example.svelte";
   import Box from "./components/Box/Box.svelte";
@@ -21,11 +21,11 @@
   const defaultSelectedOption = options.entries().next().value;
 
   let selectedOption = $state<Simplify<Entry<typeof options>> | undefined>(
-    defaultSelectedOption
+    defaultSelectedOption,
   );
 </script>
 
-<MainLayout>
+<Page>
   {#snippet pageTitle()}
     justify-self
   {/snippet}
@@ -114,7 +114,7 @@
       </section>
     </article>
   {/snippet}
-</MainLayout>
+</Page>
 
 <style>
   .main-section {
