@@ -27,21 +27,27 @@
 </Page>
 
 <style>
-  .links {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 1rem;
-    margin: 0;
-    padding-inline: 0;
-    list-style: none;
-
-    & > li {
-      display: flex;
+  @layer components {
+    .page-title {
+      text-transform: capitalize;
     }
-  }
 
-  .links :global(.link) {
-    flex: auto;
-    align-content: center;
+    .links {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 1rem;
+      margin: 0;
+      padding-inline: 0;
+      list-style: none;
+
+      & > li {
+        display: flex;
+      }
+    }
+
+    .links :global(.link) {
+      flex: auto;
+      align-content: center;
+    }
   }
 </style>
