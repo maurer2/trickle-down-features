@@ -30,7 +30,7 @@
 }
 
 @layer defaults {
-  :root {
+  html {
     line-height: 1.5;
     font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
     font-weight: 400;
@@ -38,7 +38,6 @@
     font-size: 16px;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
     background: var(--gray-light);
     color: var(--gray-dark);
     scrollbar-color: var(--gray-dark) var(--gray-light);
@@ -52,14 +51,18 @@
 
   .page {
     --current-body-container-size: small;
-    --inner-width: min(--content-width, 100%);
+    --inner-width: min(var(--content-width), 100%);
+  }
 
-    /* https://www.cmuir.co.nz/post/container-query-units/ */
-    @container body (min-width: 0rem) {
+  /* https://www.cmuir.co.nz/post/container-query-units/ */
+  @container body (min-width: 0rem) {
+    .page {
       --inner-width: min(var(--content-width), 100cqw);
     }
+  }
 
-    @container body (min-width: 34rem) {
+  @container body (min-width: 34rem) {
+    .page {
       --current-body-container-size: large;
     }
   }
@@ -95,13 +98,13 @@
 
 @layer experimental {
   /* not yet supported in svelte files. svelte css compiler won't compile */
-  .mau {
+  /* .mau {
     margin-block-start: if(
       style(--current-body-container-size: small): 0;
         style(--current-body-container-size: large): 1px;
     );
     margin-block-end: if(style(--current-body-container-size: large): 1px; else: 0;);
-  }
+  } */
 }
 
 @layer utilities {

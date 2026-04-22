@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { Snippet } from 'svelte';
 
-  import { masthead } from './Snippets/Masthead.svelte';
+  import Masthead from '../../components/Masthead/Masthead.svelte';
   import GoBackLink from '../../components/GoBackLink/GoBackLink.svelte';
 
   type PageProps = {
@@ -16,7 +16,7 @@
 <div class="page">
   <header class="header container--full-bleed">
     <div class="content container--constrained">
-      {@render masthead(filters)}
+      <Masthead {filters} />
     </div>
   </header>
   <main class="container--constrained">

@@ -1,24 +1,26 @@
-<script module lang="ts">
+<script lang="ts">
   import type { Snippet } from 'svelte';
 
-  import Link from '../../../components/Link/Link.svelte';
+  import Link from '../Link/Link.svelte';
 
-  export { masthead };
+  type MastheadProp = {
+    filters?: Snippet;
+  };
+
+  let { filters }: MastheadProp = $props();
 </script>
 
-{#snippet masthead(filters?: Snippet)}
-  <div class="masthead mau">
-    <h1 class="page-title">Trickle Down Features</h1>
-    <Link linkClass="link-inverted" target="https://github.com/maurer2/trickle-down-features"
-      >Go back to Readme</Link
-    >
-    {#if filters}
-      <search class="filters">
-        {@render filters()}
-      </search>
-    {/if}
-  </div>
-{/snippet}
+<div class="masthead">
+  <h1 class="page-title">Trickle Down Features</h1>
+  <Link linkClass="link-inverted" target="https://github.com/maurer2/trickle-down-features"
+    >Go back to Readme</Link
+  >
+  {#if filters}
+    <search class="filters">
+      {@render filters()}
+    </search>
+  {/if}
+</div>
 
 <style>
   .masthead {
@@ -26,13 +28,17 @@
     grid-template-columns: 1fr;
     grid-auto-columns: auto;
     gap: 1rem;
+  }
 
-    @container body (inline-size > 34rem) {
+  @container body (inline-size > 34rem) {
+    .masthead {
       grid-template-columns: 1fr max-content;
       align-items: center;
     }
+  }
 
-    @container style(--current-body-container-size: large) {
+  @container style(--current-body-container-size: large) {
+    .masthead {
       grid-template-columns: 1fr max-content;
       align-items: center;
     }

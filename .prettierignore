@@ -4,5 +4,6 @@
 .nvmrc
 .prettierignore
 .gitkeep
+pnpm-lock.yaml
 README.md
 *.svg
