@@ -55,7 +55,12 @@
     padding-inline: 1rem;
     padding-block: 0.5rem;
     /* https://www.joren.co/flex-grow-9999-hack/ */
+    /* https://frontendmasters.com/blog/building-a-ui-without-breakpoints/#two-region-flexible-layout */
     flex: 9999 0 250px;
+    /* flex: calc(infinity) 0 250px; /* not supported by safari */
+    /* @supports (flex-grow: calc(infinity)) {
+      flex: calc(infinity) 0 250px;
+    } */
     align-self: flex-start;
     border: 2px solid var(--gray-light);
     border-radius: var(--border-radius);
