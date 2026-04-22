@@ -1,19 +1,14 @@
 <script lang="ts">
-  import type { Entry, Simplify } from "type-fest";
+  import type { Entry, Simplify } from 'type-fest';
 
   type SelectFieldProp = {
     label: string;
     name: string;
     options: Map<string, string>;
-    selectedOption?: Simplify<Entry<SelectFieldProp["options"]>>;
+    selectedOption?: Simplify<Entry<SelectFieldProp['options']>>;
   };
 
-  let {
-    selectedOption = $bindable(),
-    options,
-    label,
-    name,
-  }: SelectFieldProp = $props();
+  let { selectedOption = $bindable(), options, label, name }: SelectFieldProp = $props();
   const uid = $props.id();
 </script>
 
@@ -128,7 +123,7 @@
 
       &:before {
         position: absolute;
-        content: "\27A0";
+        content: '\27A0';
       }
     }
 

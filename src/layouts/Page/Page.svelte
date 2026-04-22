@@ -1,8 +1,8 @@
 <script lang="ts">
-  import type { Snippet } from "svelte";
+  import type { Snippet } from 'svelte';
 
-  import { masthead } from "./Snippets/Masthead.svelte";
-  import GoBackLink from "../../components/GoBackLink/GoBackLink.svelte";
+  import { masthead } from './Snippets/Masthead.svelte';
+  import GoBackLink from '../../components/GoBackLink/GoBackLink.svelte';
 
   type PageProps = {
     pageTitle: Snippet;

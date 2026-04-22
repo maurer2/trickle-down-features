@@ -1,28 +1,26 @@
 <script lang="ts">
-  import type { Property } from "csstype";
-  import type { Entry, Simplify } from "type-fest";
+  import type { Property } from 'csstype';
+  import type { Entry, Simplify } from 'type-fest';
 
-  import Page from "../../layouts/Page/Page.svelte";
-  import SelectField from "../../components/SelectField/SelectField.svelte";
-  import Example from "../../components/Example/Example.svelte";
-  import Box from "./components/Box/Box.svelte";
+  import Page from '../../layouts/Page/Page.svelte';
+  import SelectField from '../../components/SelectField/SelectField.svelte';
+  import Example from '../../components/Example/Example.svelte';
+  import Box from './components/Box/Box.svelte';
 
   const options = new Map<Property.JustifySelf, string>([
-    ["auto", "Auto"],
-    ["center", "Centre"],
-    ["start", "Start"],
-    ["end", "End"],
-    ["stretch", "Stretch"],
-    ["flex-start", "Flex start"],
-    ["flex-end", "Flex end"],
-    ["left", "Left"],
-    ["right", "Right"],
+    ['auto', 'Auto'],
+    ['center', 'Centre'],
+    ['start', 'Start'],
+    ['end', 'End'],
+    ['stretch', 'Stretch'],
+    ['flex-start', 'Flex start'],
+    ['flex-end', 'Flex end'],
+    ['left', 'Left'],
+    ['right', 'Right'],
   ]);
   const defaultSelectedOption = options.entries().next().value;
 
-  let selectedOption = $state<Simplify<Entry<typeof options>> | undefined>(
-    defaultSelectedOption,
-  );
+  let selectedOption = $state<Simplify<Entry<typeof options>> | undefined>(defaultSelectedOption);
 </script>
 
 <Page>
@@ -41,13 +39,8 @@
     <article>
       <section class="main-section">
         <h3 class="headline">Examples</h3>
-        <div
-          class="example"
-          style="--justify-self: {selectedOption?.[0] ?? 'auto'}"
-        >
-          <h4 class="example-headline">
-            Block elements (not supported in Firefox and Safari)
-          </h4>
+        <div class="example" style="--justify-self: {selectedOption?.[0] ?? 'auto'}">
+          <h4 class="example-headline">Block elements (not supported in Firefox and Safari)</h4>
           <div class="example-wrapper">
             <Example parentClass="parent1" childClass="child1">
               {#snippet title()}
@@ -69,10 +62,7 @@
             </Example>
           </div>
         </div>
-        <div
-          class="example"
-          style="--justify-self: {selectedOption?.[0] ?? 'auto'}"
-        >
+        <div class="example" style="--justify-self: {selectedOption?.[0] ?? 'auto'}">
           <h4 class="example-headline">Absolute positioned elements</h4>
           <div class="example-wrapper">
             <Example parentClass="parent3" childClass="child3">
@@ -89,24 +79,20 @@
       <section class="main-section">
         <h3 class="headline">Use cases</h3>
         <div id="use-case-1">
-          <h4 class="example-headline">
-            Single elements (CTAs, Images etc.) inside a container
-          </h4>
+          <h4 class="example-headline">Single elements (CTAs, Images etc.) inside a container</h4>
           <div class="example-component">
             <Box />
           </div>
           <ul class="text-list" aria-label="Benefits">
             <li>
-              The container element doesn't need to be a flex-container and no
-              unwanted default flexbox behavior needs to be overridden (i.e.<code
-                class="code">flex-grow</code
-              >
+              The container element doesn't need to be a flex-container and no unwanted default
+              flexbox behavior needs to be overridden (i.e.<code class="code">flex-grow</code>
               being disabled by default) in the child element.
             </li>
             <li>
-              Inline margins can still be used to move container out of
-              alignment, for example when centred as auto-margins are not used
-              for alignment, e.g no <code class="code">margin-inline: auto</code
+              Inline margins can still be used to move container out of alignment, for example when
+              centred as auto-margins are not used for alignment, e.g no <code class="code"
+                >margin-inline: auto</code
               >.
             </li>
           </ul>

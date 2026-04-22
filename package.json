@@ -8,7 +8,8 @@
     "dev": "vite --open",
     "build": "vite build",
     "preview": "vite preview",
-    "check": "svelte-check --tsconfig ./tsconfig.app.json && tsc -p tsconfig.node.json"
+    "check": "svelte-check --tsconfig ./tsconfig.app.json && tsc -p tsconfig.node.json",
+    "prettier": "prettier --write \"**/*.*\""
   },
   "dependencies": {
     "@dvcol/svelte-simple-router": "^2.7.2",
@@ -21,6 +22,21 @@
     "type-fest": "^4.41.0",
     "typescript": "~5.9.2",
     "urlpattern-polyfill": "^10.1.0",
-    "vite": "^7.1.2"
+    "vite": "^7.1.2",
+    "prettier": "^3.8.3",
+    "prettier-plugin-svelte": "^3.5.1"
+  },
+  "pnpm": {
+    "supportedArchitectures": {
+      "cpu": [
+        "arm64",
+        "x64"
+      ],
+      "os": [
+        "darwin",
+        "linux",
+        "win32"
+      ]
+    }
   }
 }

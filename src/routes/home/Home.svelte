@@ -1,6 +1,6 @@
 <script lang="ts">
-  import Page from "../../layouts/Page/Page.svelte";
-  import Link from "../../components/Link/Link.svelte";
+  import Page from '../../layouts/Page/Page.svelte';
+  import Link from '../../components/Link/Link.svelte';
 </script>
 
 <Page>
@@ -15,9 +15,7 @@
         <Link target="#/place-self" class="link" aria-disabled>place-self</Link>
       </li>
       <li>
-        <Link target="#/justify-items" class="link" aria-disabled
-          >justify-items</Link
-        >
+        <Link target="#/justify-items" class="link" aria-disabled>justify-items</Link>
       </li>
       <li>
         <Link target="#/align-content" class="link">align-content</Link>

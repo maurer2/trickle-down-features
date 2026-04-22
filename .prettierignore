@@ -1,0 +1,8 @@
+*/devcontainer.json
+.editorconfig
+.gitignore
+.nvmrc
+.prettierignore
+.gitkeep
+README.md
+*.svg

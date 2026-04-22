@@ -1,10 +1,10 @@
-import { defineConfig } from "vite";
-import { svelte } from "@sveltejs/vite-plugin-svelte";
-import type { PreprocessorGroup } from "svelte/compiler";
+import { defineConfig } from 'vite';
+import { svelte } from '@sveltejs/vite-plugin-svelte';
+import type { PreprocessorGroup } from 'svelte/compiler';
 
 const componentLayerInjector = (): PreprocessorGroup => ({
   style({ content, filename }) {
-    if (content.includes("@layer")) {
+    if (content.includes('@layer')) {
       console.info(
         `Skipping component layer injection for ${filename} as it already contains a "@layer" directive.`,
       );
@@ -20,7 +20,7 @@ const componentLayerInjector = (): PreprocessorGroup => ({
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: "/trickle-down-features/",
+  base: '/trickle-down-features/',
   plugins: [
     svelte({
       preprocess: [componentLayerInjector()],

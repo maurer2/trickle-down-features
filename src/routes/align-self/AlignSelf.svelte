@@ -1,29 +1,27 @@
 <script lang="ts">
-  import type { Property } from "csstype";
-  import type { Entry, Simplify } from "type-fest";
+  import type { Property } from 'csstype';
+  import type { Entry, Simplify } from 'type-fest';
 
-  import Page from "../../layouts/Page/Page.svelte";
-  import SelectField from "../../components/SelectField/SelectField.svelte";
-  import Example from "../../components/Example/Example.svelte";
+  import Page from '../../layouts/Page/Page.svelte';
+  import SelectField from '../../components/SelectField/SelectField.svelte';
+  import Example from '../../components/Example/Example.svelte';
 
   const options = new Map<Property.AlignSelf, string>([
-    ["auto", "Auto"],
-    ["normal", "Normal"],
-    ["center", "Centre"],
-    ["start", "Start"],
-    ["end", "End"],
-    ["stretch", "Stretch"],
-    ["baseline", "Baseline"],
-    ["flex-start", "Flex start"], // should be the same as self-start since flex direction is ignored
-    ["flex-end", "Flex end"], // should be the same as self-start since flex direction is ignored
-    ["self-start", "Self start"],
-    ["self-end", "Self end"],
+    ['auto', 'Auto'],
+    ['normal', 'Normal'],
+    ['center', 'Centre'],
+    ['start', 'Start'],
+    ['end', 'End'],
+    ['stretch', 'Stretch'],
+    ['baseline', 'Baseline'],
+    ['flex-start', 'Flex start'], // should be the same as self-start since flex direction is ignored
+    ['flex-end', 'Flex end'], // should be the same as self-start since flex direction is ignored
+    ['self-start', 'Self start'],
+    ['self-end', 'Self end'],
   ]);
   const defaultSelectedOption = options.entries().next().value;
 
-  let selectedOption = $state<Simplify<Entry<typeof options>> | undefined>(
-    defaultSelectedOption,
-  );
+  let selectedOption = $state<Simplify<Entry<typeof options>> | undefined>(defaultSelectedOption);
 </script>
 
 <Page>
@@ -42,10 +40,7 @@
     <article>
       <section class="main-section">
         <h3 class="headline">Examples</h3>
-        <div
-          class="example"
-          style="--align-self: {selectedOption?.[0] ?? 'auto'}"
-        >
+        <div class="example" style="--align-self: {selectedOption?.[0] ?? 'auto'}">
           <h4 class="example-headline">
             Absolute positioned child elements inside relative positioned parent
           </h4>

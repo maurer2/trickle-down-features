@@ -1,12 +1,10 @@
 <script lang="ts">
-  import Link from "../../../../components/Link/Link.svelte";
+  import Link from '../../../../components/Link/Link.svelte';
 </script>
 
 <ul class="links" aria-label="Example horizontal list">
   <li>
-    <Link target="#/place-self" linkClass="link"
-      >A long label that wraps to multiple lines</Link
-    >
+    <Link target="#/place-self" linkClass="link">A long label that wraps to multiple lines</Link>
   </li>
   <li>
     <Link target="#/place-self" linkClass="link">A somewhat shorter label</Link>

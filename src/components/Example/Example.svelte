@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { Snippet } from "svelte";
-  import type { ClassValue } from "svelte/elements";
+  import type { Snippet } from 'svelte';
+  import type { ClassValue } from 'svelte/elements';
 
   type ExampleProps = {
     parentClass: ClassValue;

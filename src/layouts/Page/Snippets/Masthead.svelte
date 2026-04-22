@@ -1,7 +1,7 @@
 <script module lang="ts">
-  import type { Snippet } from "svelte";
+  import type { Snippet } from 'svelte';
 
-  import Link from "../../../components/Link/Link.svelte";
+  import Link from '../../../components/Link/Link.svelte';
 
   export { masthead };
 </script>
@@ -9,9 +9,7 @@
 {#snippet masthead(filters?: Snippet)}
   <div class="masthead mau">
     <h1 class="page-title">Trickle Down Features</h1>
-    <Link
-      linkClass="link-inverted"
-      target="https://github.com/maurer2/trickle-down-features"
+    <Link linkClass="link-inverted" target="https://github.com/maurer2/trickle-down-features"
       >Go back to Readme</Link
     >
     {#if filters}

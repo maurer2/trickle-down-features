@@ -1,15 +1,11 @@
 <script lang="ts">
-  import type {
-    ClassValue,
-    HTMLAnchorAttributes,
-    AriaAttributes,
-  } from "svelte/elements";
-  import type { Snippet } from "svelte";
+  import type { ClassValue, HTMLAnchorAttributes, AriaAttributes } from 'svelte/elements';
+  import type { Snippet } from 'svelte';
 
   type LinkProps = HTMLAnchorAttributes & {
     linkClass?: ClassValue;
     target: string;
-    "aria-disabled"?: AriaAttributes["aria-disabled"];
+    'aria-disabled'?: AriaAttributes['aria-disabled'];
     children: Snippet;
   };
 
@@ -17,7 +13,7 @@
     linkClass,
     target,
     children,
-    "aria-disabled": ariaDisabled,
+    'aria-disabled': ariaDisabled,
     ...htmlAttributes
   }: LinkProps = $props();
 </script>
@@ -25,7 +21,7 @@
 <!-- https://www.scottohara.me/blog/2021/05/28/disabled-links.html#correctly-using-aria -->
 <a
   href={ariaDisabled ? undefined : target}
-  role={ariaDisabled ? "link" : undefined}
+  role={ariaDisabled ? 'link' : undefined}
   aria-disabled={ariaDisabled}
   class="link {linkClass}"
   {...htmlAttributes}

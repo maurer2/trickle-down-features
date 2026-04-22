@@ -1,28 +1,26 @@
 <script lang="ts">
-  import type { Property } from "csstype";
-  import type { Entry, Simplify } from "type-fest";
+  import type { Property } from 'csstype';
+  import type { Entry, Simplify } from 'type-fest';
 
-  import Page from "../../layouts/Page/Page.svelte";
-  import SelectField from "../../components/SelectField/SelectField.svelte";
-  import HorizontalListExample from "./components/HorizontalListExample/HorizontalListExample.svelte";
+  import Page from '../../layouts/Page/Page.svelte';
+  import SelectField from '../../components/SelectField/SelectField.svelte';
+  import HorizontalListExample from './components/HorizontalListExample/HorizontalListExample.svelte';
 
   const options = new Map<Property.AlignContent, string>([
-    ["normal", "Normal"],
-    ["center", "Centre"],
-    ["start", "Start"],
-    ["end", "End"],
-    ["stretch", "Stretch"],
-    ["baseline", "Baseline"],
-    ["flex-start", "Flex start"],
-    ["flex-end", "Flex end"],
-    ["self-start", "Self start"],
-    ["self-end", "Self end"],
+    ['normal', 'Normal'],
+    ['center', 'Centre'],
+    ['start', 'Start'],
+    ['end', 'End'],
+    ['stretch', 'Stretch'],
+    ['baseline', 'Baseline'],
+    ['flex-start', 'Flex start'],
+    ['flex-end', 'Flex end'],
+    ['self-start', 'Self start'],
+    ['self-end', 'Self end'],
   ]);
   const defaultSelectedOption = options.entries().next().value;
 
-  let selectedOption = $state<Simplify<Entry<typeof options>> | undefined>(
-    defaultSelectedOption,
-  );
+  let selectedOption = $state<Simplify<Entry<typeof options>> | undefined>(defaultSelectedOption);
 </script>
 
 <Page>
@@ -41,10 +39,7 @@
     <article>
       <section class="main-section">
         <h3 class="headline">Examples</h3>
-        <div
-          class="example"
-          style="--align-content: {selectedOption?.[0] ?? 'normal'}"
-        >
+        <div class="example" style="--align-content: {selectedOption?.[0] ?? 'normal'}">
           <figure class="example-wrapper">
             <figcaption class="example-headline" id="example-1-title">
               Table cells (<code class="code">&lt;th&gt;</code> and
@@ -59,9 +54,8 @@
                       <th scope="col">Column 1 header</th>
                       <th scope="col"
                         >Column 2 header <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit, sed eiusmod tempor incidunt ut labore et dolore
-                          magna aliqua.
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod
+                          tempor incidunt ut labore et dolore magna aliqua.
                         </p></th
                       >
                       <th scope="col">Column 3 header</th>
@@ -73,9 +67,8 @@
                       <td>Column 2</td>
                       <td
                         >Column 3 <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit, sed eiusmod tempor incidunt ut labore et dolore
-                          magna aliqua.
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod
+                          tempor incidunt ut labore et dolore magna aliqua.
                         </p></td
                       >
                     </tr>
@@ -90,8 +83,9 @@
         <h3 class="headline">Use cases</h3>
         <div id="use-case-1">
           <h4>
-            Horizontal list with labels of of varying sizes inside columns of
-            equal height (<code class="code">ul&gt;li&gt;a/button</code>)
+            Horizontal list with labels of of varying sizes inside columns of equal height (<code
+              class="code">ul&gt;li&gt;a/button</code
+            >)
           </h4>
           <div class="example-component">
             <HorizontalListExample />
@@ -100,31 +94,26 @@
             <li>
               <code class="code">li</code> elements can be set to
               <code class="code">display:contents</code>
-              and don't need to be a made flex containers in order to use align-content
-              to vertically centre the <code class="code">&lt;a&gt;</code>/
+              and don't need to be a made flex containers in order to use align-content to vertically
+              centre the <code class="code">&lt;a&gt;</code>/
               <code class="code">&lt;button&gt;</code> elements inside
             </li>
             <li>
               The <code class="code">&lt;a&gt;</code> or
-              <code class="code">&lt;button&gt;</code> elements can be simple
-              block-elements, so no disabling of unwanted flexbox behavior (i.e.<code
-                class="code">flex-grow</code
-              >
-              being disabled by default) is necessary. Content but can still be vertically
-              centred by using
+              <code class="code">&lt;button&gt;</code> elements can be simple block-elements, so no
+              disabling of unwanted flexbox behavior (i.e.<code class="code">flex-grow</code>
+              being disabled by default) is necessary. Content but can still be vertically centred by
+              using
               <code class="code">align-content</code>
             </li>
           </ul>
         </div>
         <div id="use-case-2">
-          <h4>
-            Unifies CSS properties for vertical alignment of child content
-          </h4>
+          <h4>Unifies CSS properties for vertical alignment of child content</h4>
           <ul class="text-list">
             <li>
-              Renders the (<code class="code">vertical-align</code>) property
-              within table cells unnecessary and brings it in line with other
-              layout contexts
+              Renders the (<code class="code">vertical-align</code>) property within table cells
+              unnecessary and brings it in line with other layout contexts
             </li>
           </ul>
         </div>
